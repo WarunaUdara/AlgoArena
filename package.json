@@ -1,6 +1,8 @@
 {
   "name": "algoarena",
   "version": "0.1.0",
+  "description": "Official landing page for AlgoArena 2025 - Mobile Application Development Competition Event",
+  "keywords": ["programming", "competition", "algorithm", "contest", "mobile Application Development", "mobile", "application", "development", "mobile development", "mobile app", "app" , "Leo clubs" , "University of Sri Jayewardenepura", "USJ", "USJ Leo", "USJ Leo Clubs", "USJ Leo Clubs 2025" ,"Leo clubs of Sri Lanka and Maldives"],
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",

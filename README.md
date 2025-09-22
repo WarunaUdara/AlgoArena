@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AlgoArena 2025 - Official Landing Page
 
-## Getting Started
+The official website for AlgoArena 2025, Mobile Application development competiton
 
-First, run the development server:
+## 🚀 Features
+
+- Modern Next.js 15.5.3 with App Router
+- TypeScript for type safety
+- Tailwind CSS for styling
+- Responsive design
+- SEO optimized
+
+## 🛠️ Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+
+# Build for production
+npm run build
+
+# Run linting
+npm run lint
+```
+### Using Bun
+
+If you prefer using Bun as your JavaScript runtime:
+
+```bash
+# Install dependencies with Bun
+bun install
+
+# Start development server
 bun dev
+
+# Build for production
+bun run build
+
+# Run linting
+bun run lint
+```
+## 📦 Package Management
+
+### Recommended: Use npm for package management
+To reduce conflicts between different environments and ensure consistency across all development setups, we recommend using **npm** as the package manager regardless of your preferred runtime.
+
+### Runtime Options
+
+You can use either **Bun** or **Node.js** as your JavaScript runtime while maintaining npm for package management:
+
+**With Node.js runtime:**
+```bash
+npm install
+npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**With Bun runtime:**
+```bash
+npm install  # Use npm for package management
+bun --bun run dev  # Use Bun as runtime
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This approach ensures all team members have the same dependency tree while allowing flexibility in runtime choice.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 Project Structure
 
-## Learn More
+```
+algoarena/
+├── app/                 # App Router pages
+├── components/          # Reusable UI components
+│   ├── ui/             # Basic UI components
+│   └── sections/       # Page sections
+├── lib/                # Utilities and helpers
+└── public/             # Static assets
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯 Event Information
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Event Name**: AlgoArena 2025
+- **Date**: September, 2025
+- **Type**: Mobile App Development Hackathon
+- **Target**: Competitive programmers and students
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🤝 Contributing
 
-## Deploy on Vercel
+1. Clone the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

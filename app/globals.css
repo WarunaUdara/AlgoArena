@@ -8,7 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-oxanium), sans-serif;  /* Changed from Geist to Oxanium */
   --font-mono: var(--font-geist-mono);
 }
 
@@ -22,5 +22,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-oxanium), Arial, Helvetica, sans-serif;  /* Updated font-family */
 }
