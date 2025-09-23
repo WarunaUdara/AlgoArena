@@ -1,6 +1,7 @@
 import React from 'react'
 import Plasma from '../ui/Plasma'
 
+
 const Hero = () => {
   return (
     <section className="relative min-h-screen overflow-hidden">
@@ -22,7 +23,6 @@ const Hero = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-screen lg:min-h-0">
             
             {/* Left Side - Text Content */}
-            {/* Mobile: Order 2 (bottom), Desktop: Order 1 (left) */}
             <div className="text-center lg:text-left lg:pr-12 order-2 lg:order-1 flex flex-col justify-end lg:justify-center pb-8 lg:pb-0">
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-wider mb-2 text-white">
                 ALGOARENA
@@ -43,18 +43,18 @@ const Hero = () => {
               </div>
             </div>
             
-            {/* Right Side - Phone Mockup */}
-            {/* Mobile: Order 1 (top), Desktop: Order 2 (right) */}
+            {/* Right Side - 3D Robot */}
             <div className="flex justify-center lg:justify-center order-1 lg:order-2 flex-1 lg:flex-none items-center pt-16 lg:pt-0">
-              <div className="">
-                {/* Phone Frame */}
-                <div className="w-52 h-[420px] md:w-64 md:h-[520px] lg:w-72 lg:h-[580px] bg-gray-800 rounded-[3rem] p-2 shadow-2xl">
-                  {/* Phone Screen */}
-                  <div className="w-full h-full bg-black rounded-[2.5rem] flex items-center justify-center overflow-hidden">
-                    {/* Add your robot avatar here */}
-                    <div className="text-white text-4xl">🤖</div>
+              <div className="relative">
+                {/* Phone Frame with 3D Robot */}
+                <div className="w-52 h-[420px] md:w-64 md:h-[520px] lg:w-72 lg:h-[580px] bg-gray-800/50 backdrop-blur-sm rounded-[3rem] p-2 shadow-2xl border border-white/10">
+                  {/* Phone Screen with Spline Robot */}
+                  <div className="w-full h-full rounded-[2.5rem] overflow-hidden">
+                    
                   </div>
                 </div>
+                
+                
               </div>
             </div>
             
