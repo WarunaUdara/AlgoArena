@@ -10,7 +10,6 @@ interface PlasmaProps {
   direction?: 'forward' | 'reverse' | 'pingpong';
   scale?: number;
   opacity?: number;
-  mouseInteractive?: boolean;
 }
 
 const hexToRgb = (hex: string): [number, number, number] => {
@@ -40,16 +39,11 @@ uniform float uSpeed;
 uniform float uDirection;
 uniform float uScale;
 uniform float uOpacity;
-uniform vec2 uMouse;
-uniform float uMouseInteractive;
 out vec4 fragColor;
 
 void mainImage(out vec4 o, vec2 C) {
   vec2 center = iResolution.xy * 0.5;
   C = (C - center) / uScale + center;
-  
-  vec2 mouseOffset = (uMouse - center) * 0.0002;
-  C += mouseOffset * length(C - center) * step(0.5, uMouseInteractive);
   
   float i, d, z, T = iTime * uSpeed * uDirection;
   vec3 O, p, S;
@@ -96,11 +90,9 @@ export const Plasma: React.FC<PlasmaProps> = ({
   speed = 1,
   direction = 'forward',
   scale = 1,
-  opacity = 1,
-  mouseInteractive = true
+  opacity = 1
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const mousePos = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -125,7 +117,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
       webgl: 2,
       alpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1 : 2)
     });
     const gl = renderer.gl;
     const canvas = gl.canvas as HTMLCanvasElement;
@@ -147,27 +139,11 @@ export const Plasma: React.FC<PlasmaProps> = ({
         uSpeed: { value: speed * 0.4 },
         uDirection: { value: directionMultiplier },
         uScale: { value: scale },
-        uOpacity: { value: opacity },
-        uMouse: { value: new Float32Array([0, 0]) },
-        uMouseInteractive: { value: mouseInteractive ? 1.0 : 0.0 }
+        uOpacity: { value: opacity }
       }
     });
 
     const mesh = new Mesh(gl, { geometry, program });
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!mouseInteractive) return;
-      const rect = container.getBoundingClientRect();
-      mousePos.current.x = e.clientX - rect.left;
-      mousePos.current.y = e.clientY - rect.top;
-      const mouseUniform = program.uniforms.uMouse.value as Float32Array;
-      mouseUniform[0] = mousePos.current.x;
-      mouseUniform[1] = mousePos.current.y;
-    };
-
-    if (mouseInteractive) {
-      container.addEventListener('mousemove', handleMouseMove);
-    }
 
     const setSize = () => {
       const rect = container.getBoundingClientRect();
@@ -209,16 +185,13 @@ export const Plasma: React.FC<PlasmaProps> = ({
       cancelAnimationFrame(raf);
       observer.disconnect();
       ro.disconnect();
-      if (mouseInteractive) {
-        container.removeEventListener('mousemove', handleMouseMove);
-      }
       try {
         container.removeChild(canvas);
       } catch {
         // Canvas already removed
       }
     };
-  }, [color, speed, direction, scale, opacity, mouseInteractive]);
+  }, [color, speed, direction, scale, opacity]);
 
   return <div ref={containerRef} className="w-full h-full relative overflow-hidden" />;
 };
