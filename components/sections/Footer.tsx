@@ -21,25 +21,25 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-6 text-white">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
+                <a href="#home" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
                   <span className="mr-2 text-blue-500 group-hover:translate-x-1 transition-transform duration-200">›</span>
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
+                <a href="#about" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
                   <span className="mr-2 text-blue-500 group-hover:translate-x-1 transition-transform duration-200">›</span>
                   About
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
+                <a href="#timeline" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
                   <span className="mr-2 text-blue-500 group-hover:translate-x-1 transition-transform duration-200">›</span>
                   Timeline
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
+                <a href="#contact" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
                   <span className="mr-2 text-blue-500 group-hover:translate-x-1 transition-transform duration-200">›</span>
                   Guidelines
                 </a>

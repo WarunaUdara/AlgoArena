@@ -24,12 +24,22 @@ const Footer = dynamic(() => import("@/components/sections/Footer"));
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Hero />
-      <About />
-      <TimeLine />
-      <Partners />
-      <Contact />
+    <main className="min-h-screen scroll-smooth">
+      <section id="home">
+        <Hero />
+      </section>
+      <section id="about">
+        <About />
+      </section>
+      <section id="timeline">
+        <TimeLine />
+      </section>
+      <section id="partners">
+        <Partners />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
       <Footer />
     </main>
   );

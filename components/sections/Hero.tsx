@@ -41,9 +41,12 @@ const Hero = () => {
                 <button className="px-6 py-3 lg:px-8 lg:py-4 bg-white hover:bg-gray-100 text-black rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform">
                   register →
                 </button>
-                <button className="px-6 py-3 lg:px-8 lg:py-4 border border-white/30 text-white hover:bg-white/10 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center will-change-transform">
+                <a 
+                  href="#about"
+                  className="px-6 py-3 lg:px-8 lg:py-4 border border-white/30 text-white hover:bg-white/10 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center will-change-transform"
+                >
                   learn more ↓
-                </button>
+                </a>
               </div>
             </div>
 
