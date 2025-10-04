@@ -53,9 +53,7 @@ const About = () => {
                 objectFit="cover"
                 className="transform hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute bottom-3 right-3 w-6 h-6 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center">
-                <span className="text-white text-xs">✨</span>
-              </div>
+              
             </div>
           </div>
 

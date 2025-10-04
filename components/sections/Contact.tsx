@@ -22,8 +22,7 @@ const Contact = () => {
 
   return (
     <section className="relative py-20 lg:py-32 bg-black text-white overflow-hidden">
-      {/* Background Pattern - Optional */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-950/10 to-black"></div>
+      
 
       {/* Content */}
       <div className="relative container mx-auto px-4 lg:px-8">
