@@ -22,18 +22,18 @@ const Hero = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-screen lg:min-h-0">
             {/* Left Side - Text Content */}
-            <div className="text-center lg:text-left lg:pr-12 order-2 lg:order-1 flex flex-col justify-end lg:justify-center pb-8 lg:pb-0">
+            <div className="lg:pr-12 order-2 lg:order-1 flex flex-col justify-end lg:justify-center pb-8 lg:pb-0">
               <BlurText
                 text="ALGOARENA"
                 delay={150}
                 animateBy="letters"
                 direction="top"
                 onAnimationComplete={handleAnimationComplete}
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-wider mb-2 text-white"
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-wider mb-2 text-white w-full justify-center lg:justify-start"
               />
               
 
-              <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-white mb-6 lg:mb-7">
+              <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-white mb-6 lg:mb-7 text-center lg:text-left">
                 A Journey from Learning to Building
               </p>
 
