@@ -104,11 +104,22 @@ export const Plasma: React.FC<PlasmaProps> = ({
 
   useEffect(() => {
     if (!containerRef.current) return;
+    const container = containerRef.current; // Capture ref value
 
     const useCustomColor = color ? 1.0 : 0.0;
     const customColorRgb = color ? hexToRgb(color) : [1, 1, 1];
 
     const directionMultiplier = direction === 'reverse' ? -1.0 : 1.0;
+
+    // Intersection Observer to pause when off-screen
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isVisible = entries[0].isIntersecting;
+      },
+      { threshold: 0.01 }
+    );
+    observer.observe(container);
 
     const renderer = new Renderer({
       webgl: 2,
@@ -121,7 +132,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
     canvas.style.display = 'block';
     canvas.style.width = '100%';
     canvas.style.height = '100%';
-    containerRef.current.appendChild(canvas);
+    container.appendChild(canvas);
 
     const geometry = new Triangle(gl);
 
@@ -146,7 +157,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!mouseInteractive) return;
-      const rect = containerRef.current!.getBoundingClientRect();
+      const rect = container.getBoundingClientRect();
       mousePos.current.x = e.clientX - rect.left;
       mousePos.current.y = e.clientY - rect.top;
       const mouseUniform = program.uniforms.uMouse.value as Float32Array;
@@ -155,11 +166,11 @@ export const Plasma: React.FC<PlasmaProps> = ({
     };
 
     if (mouseInteractive) {
-      containerRef.current.addEventListener('mousemove', handleMouseMove);
+      container.addEventListener('mousemove', handleMouseMove);
     }
 
     const setSize = () => {
-      const rect = containerRef.current!.getBoundingClientRect();
+      const rect = container.getBoundingClientRect();
       const width = Math.max(1, Math.floor(rect.width));
       const height = Math.max(1, Math.floor(rect.height));
       renderer.setSize(width, height);
@@ -169,12 +180,18 @@ export const Plasma: React.FC<PlasmaProps> = ({
     };
 
     const ro = new ResizeObserver(setSize);
-    ro.observe(containerRef.current);
+    ro.observe(container);
     setSize();
 
     let raf = 0;
     const t0 = performance.now();
     const loop = (t: number) => {
+      // Skip rendering when not visible to save performance
+      if (!isVisible) {
+        raf = requestAnimationFrame(loop);
+        return;
+      }
+
       let timeValue = (t - t0) * 0.001;
 
       if (direction === 'pingpong') {
@@ -190,13 +207,16 @@ export const Plasma: React.FC<PlasmaProps> = ({
 
     return () => {
       cancelAnimationFrame(raf);
+      observer.disconnect();
       ro.disconnect();
-      if (mouseInteractive && containerRef.current) {
-        containerRef.current.removeEventListener('mousemove', handleMouseMove);
+      if (mouseInteractive) {
+        container.removeEventListener('mousemove', handleMouseMove);
       }
       try {
-        containerRef.current?.removeChild(canvas);
-      } catch {}
+        container.removeChild(canvas);
+      } catch {
+        // Canvas already removed
+      }
     };
   }, [color, speed, direction, scale, opacity, mouseInteractive]);
 

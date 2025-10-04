@@ -5,7 +5,7 @@ import  CountdownTimer  from '../ui/CountDownTimer';
 
 const About = () => {
   // Set the target date for the countdown
-  const hackathonDate = "2025-09-28T09:00:00";
+  const hackathonDate = "2025-10-15T12:00:00";
 
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden">
@@ -14,8 +14,10 @@ const About = () => {
         <RippleGrid
           gridColor="#002EBA"
           rippleIntensity={0.01}
-          gridSize={22}
-          opacity={0.3}
+          gridSize={17}
+          opacity={0.5}
+          vignetteStrength={1}
+          
         />
       </div>
 
@@ -25,11 +27,18 @@ const About = () => {
         <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
           What is ALGOARENA
         </h2>
-        <p className="max-w-3xl mx-auto text-gray-300 text-base lg:text-lg leading-relaxed">
-          Welcome to AlgoArena. This hackathon is where ideas become reality.
-          Collaborate with like-minded innovators to build cutting-edge solutions and
-          challenge yourself in a high-energy environment. This is your platform to learn,
-          create, and build something extraordinary.
+        <p className="max-w-3xl mx-auto text-white text-base lg:text-lg leading-relaxed mb-6">
+          AlgoArena is an inter-university coding competition organized by the Leo Club of the University of Sri Jayewardenepura, 
+          in collaboration with the IEEE Student Branch and Computer Society Chapter.
+        </p>
+        <p className="max-w-3xl mx-auto text-white text-base lg:text-lg leading-relaxed mb-6">
+          The competition consists of two exciting rounds: an online preliminary round and a physical final round, 
+          accompanied by workshops designed to enhance participants&apos; skills in competitive programming and problem-solving.
+        </p>
+        <p className="max-w-3xl mx-auto text-white text-base lg:text-lg leading-relaxed">
+          Beyond the competition, AlgoArena includes a platform to showcase Leo Club projects across Sri Lanka, 
+          encouraging learning, collaboration, and leadership among students. This is your opportunity to challenge yourself, 
+          connect with innovators, and build something extraordinary.
         </p>
 
         {/* Bottom Section with Image and Countdown */}
@@ -51,7 +60,7 @@ const About = () => {
           </div>
 
           {/* Countdown Timer */}
-          <div className="flex justify-center lg:justify-start">
+          <div className="flex justify-center lg:justify-start px-2">
             <CountdownTimer targetDate={hackathonDate} />
           </div>
         </div>

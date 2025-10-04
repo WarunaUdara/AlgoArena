@@ -25,5 +25,29 @@ body {
   font-family: var(--font-oxanium), Arial, Helvetica, sans-serif;  /* Updated font-family */
 }
 
+/* Performance optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize will-change for countdown timer */
+.will-change-contents {
+  will-change: contents;
+}
+
+/* Force GPU acceleration for smooth scrolling */
+section {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Optimize canvas rendering */
+canvas {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
 
 
