@@ -54,4 +54,26 @@ canvas {
   -webkit-transform: translateZ(0);
 }
 
+/* Shimmer animation for footer border */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(100vw + 100%));
+    opacity: 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite ease-in-out;
+}
+
 

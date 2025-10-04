@@ -3,7 +3,25 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-12 border-t border-white/10">
+    <footer className="bg-black text-white py-12 relative">
+      {/* Animated Border Line */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-white/10 overflow-hidden">
+        <div 
+          className="absolute top-0 left-0 h-full w-40 opacity-80 blur-sm"
+          style={{
+            background: 'linear-gradient(to right, transparent, #002EBA, transparent)',
+            animation: 'shimmer 5s infinite linear'
+          }}
+        ></div>
+        <div 
+          className="absolute top-0 left-0 h-full w-40"
+          style={{
+            background: 'linear-gradient(to right, transparent, #0040FF, transparent)',
+            animation: 'shimmer 5s infinite linear'
+          }}
+        ></div>
+      </div>
+      
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
           {/* Logo and Description */}
