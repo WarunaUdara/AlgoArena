@@ -17,49 +17,40 @@ const Hero = () => {
       </div>
 
       {/* Content Layout */}
-      <div className="relative z-10 min-h-screen flex items-center transform-gpu">
+      <div className="relative z-10 min-h-screen flex items-center justify-center transform-gpu">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-screen lg:min-h-0">
-            {/* Left Side - Text Content */}
-            <div className="lg:pr-12 order-2 lg:order-1 flex flex-col justify-end lg:justify-center pb-8 lg:pb-0">
+          <div className="flex items-center justify-center min-h-screen lg:min-h-0">
+            {/* Centered Content */}
+            <div className="text-center max-w-4xl mx-auto">
               <BlurText
                 text="ALGOARENA"
                 delay={150}
                 animateBy="letters"
                 direction="top"
                 onAnimationComplete={handleAnimationComplete}
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-wider mb-2 text-white w-full justify-center lg:justify-start"
+                className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-wider mb-4 text-white w-full justify-center"
               />
               
 
-              <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-white mb-6 lg:mb-7 text-center lg:text-left">
+              <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-white mb-8 lg:mb-10">
                 A Journey from Learning to Building
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button className="px-6 py-3 lg:px-8 lg:py-4 bg-white hover:bg-gray-100 text-black rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="px-8 py-4 lg:px-10 lg:py-5 bg-white hover:bg-gray-100 text-black rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform text-lg">
                   register →
                 </button>
                 <a 
                   href="#about"
-                  className="px-6 py-3 lg:px-8 lg:py-4 border border-white/30 text-white hover:bg-white/10 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center will-change-transform"
+                  className="px-8 py-4 lg:px-10 lg:py-5 border border-white/30 text-white hover:bg-white/10 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center will-change-transform text-lg"
                 >
                   learn more ↓
                 </a>
               </div>
             </div>
 
-            {/* Right Side - 3D Robot */}
-            <div className="flex justify-center lg:justify-center order-1 lg:order-2 flex-1 lg:flex-none items-center pt-16 lg:pt-0">
-              <div className="relative transform-gpu">
-                {/* Phone Frame with 3D Robot */}
-                <div className="w-52 h-[420px] md:w-64 md:h-[520px] lg:w-72 lg:h-[580px] bg-gray-800/50 backdrop-blur-sm rounded-[3rem] p-2 shadow-2xl border border-white/10">
-                  {/* Phone Screen with Spline Robot */}
-                  <div className="w-full h-full rounded-[2.5rem] overflow-hidden"></div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
