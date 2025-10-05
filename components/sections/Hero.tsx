@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Plasma from "../ui/Plasma";
 import BlurText from "../ui/BlurText";
+import TextGenerateEffect from "../ui/TextGenerateEffect";
 
 const Hero = () => {
+  const [startTextGenerate, setStartTextGenerate] = useState(false);
+
+  const handleAnimationComplete = () => {
+    console.log("BlurText animation completed!");
+    setStartTextGenerate(true);
+  };
+
   return (
     <section className="relative min-h-screen overflow-hidden will-change-transform">
       {/* Animated Background */}
@@ -31,10 +39,13 @@ const Hero = () => {
                 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-wider mb-4 text-white w-full justify-center"
               />
               
-
-              <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-white mb-8 lg:mb-10">
-                A Journey from Learning to Building
-              </p>
+              <TextGenerateEffect
+                words="A Journey from Learning to Building"
+                className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-white mb-8 lg:mb-10"
+                duration={0.6}
+                delay={0.15}
+                startAnimation={startTextGenerate}
+              />
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -56,9 +67,6 @@ const Hero = () => {
       </div>
     </section>
   );
-};
-const handleAnimationComplete = () => {
-  console.log("Animation completed!");
 };
 
 export default Hero;
