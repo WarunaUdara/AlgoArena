@@ -30,7 +30,7 @@ const Footer = dynamic(() => import("@/components/sections/Footer"));
 export default function Home() {
   return (
     <>
-      
+      <NavBar />
       <main className="min-h-screen scroll-smooth">
         <section id="home">
           <Hero />
