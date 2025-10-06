@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 
 const Footer = () => {
@@ -26,8 +27,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
           {/* Logo and Description */}
           <div className="space-y-4">
-            <div className="w-40 h-24 bg-gray-800/50 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">LOGO</span>
+            <div className="w-40 h-24 relative">
+              <Image
+                src="/algoarena logo.jpg"
+                alt="AlgoArena Logo"
+                fill
+                className="object-contain"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               A place where passionate minds unite to code, collaborate and innovate for a better future

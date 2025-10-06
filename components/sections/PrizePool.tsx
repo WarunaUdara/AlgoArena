@@ -25,7 +25,7 @@ const PrizePool = () => {
       gradient: "linear-gradient(135deg, #E8E8E8 0%, #A8A8A8 100%)",
       shadow: "0 20px 60px rgba(192, 192, 192, 0.3)",
       medal: "🥈",
-      perks: ["Digital Certificate", "Recognition"],
+      perks: ["Digital Certificate"],
       scale: 1,
       delay: 0.2,
     },
@@ -37,7 +37,7 @@ const PrizePool = () => {
       gradient: "linear-gradient(135deg, #D4A574 0%, #8B6914 100%)",
       shadow: "0 20px 60px rgba(205, 127, 50, 0.3)",
       medal: "🥉",
-      perks: ["Digital Certificate", "Appreciation"],
+      perks: ["Digital Certificate"],
       scale: 1,
       delay: 0.4,
     },
@@ -145,7 +145,7 @@ const PrizePool = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-20 text-center"
+          className="mt-5 text-center"
         >
           <p className="text-gray-500 text-sm md:text-base">
             All participants will receive a participation certificate
