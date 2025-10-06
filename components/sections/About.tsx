@@ -6,7 +6,7 @@ import ScrollAnimation from '../ui/scroll-animation';
 
 const About = () => {
   // Set the target date for the countdown
-  const hackathonDate = "2025-10-15T12:00:00";
+  const registrationDate = "2025-10-10T12:00:00";
 
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden bg-black">
@@ -66,12 +66,17 @@ const About = () => {
           </div>
           </ScrollAnimation>
 
-          {/* Countdown Timer */}
-          <ScrollAnimation>
-          <div className="flex justify-center lg:justify-start px-2">
-            <CountdownTimer targetDate={hackathonDate} />
-          </div>
-          </ScrollAnimation>
+            {/* Countdown Timer */}
+            <ScrollAnimation>
+            <div className="flex flex-col items-center lg:items-start">
+            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6 text-center lg:text-left">
+              Registration Opens In
+            </h3>
+            <div className="w-full flex justify-center lg:justify-start"></div>
+              <CountdownTimer targetDate={registrationDate} />
+            </div>
+            
+            </ScrollAnimation>
         </div>
       </div>
     </section>

@@ -30,7 +30,7 @@ const TimeLine = () => {
             <div className="space-y-2 text-sm md:text-base">
               <p className="text-gray-300">
                 <span className="text-gray-500">Date:</span>{" "}
-                <span className="font-medium" style={{ color: '#002EBA' }}>October 5th, 2025</span>
+                <span className="font-medium" style={{ color: '#FFFFFF' }}>October 5th, 2025</span>
               </p>
               <p className="text-gray-300">
                 <span className="text-gray-500">Time:</span>{" "}
@@ -43,7 +43,7 @@ const TimeLine = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="font-medium hover:underline"
-                  style={{ color: '#002EBA' }}
+                  style={{ color: '#FFFFFF' }}
                 >
                   Mr. Suresh Michael Pieris
                 </a>
@@ -78,7 +78,7 @@ const TimeLine = () => {
             Online Preliminary Round
           </h3>
           <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-            Competitive coding challenge to test algorithmic thinking. 
+            Submit a high-fidelity design prototype demonstrating your solution to the given problem statement. 
             Top performers advance to the final round.
           </p>
         </div>
