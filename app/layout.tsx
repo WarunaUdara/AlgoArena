@@ -11,7 +11,12 @@ const oxanium = Oxanium({
 export const metadata: Metadata = {
   title: "AlgoArena 2025",
   description: "Official landing page for AlgoArena 2025 - Mobile Application Development Competition Event in Collaboration with USJ Leo Clubs and Leo clubs of Sri Lanka and Maldives",
-  keywords: ['app dev','usj','mobile app','competition','hackathon']
+  keywords: ['app dev','usj','mobile app','competition','hackathon'],
+  icons: {
+    icon: '/logo only.png',
+    
+  },
+  
 };
 
 export default function RootLayout({
