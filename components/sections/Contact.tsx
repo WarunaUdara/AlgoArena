@@ -4,19 +4,19 @@ import { FaEnvelope } from 'react-icons/fa'
 const Contact = () => {
   const contacts = [
     {
-      role: 'Chairperson',
-      name: 'Name',
-      email: 'email@example.com'
+      role: 'Co-Chairperson',
+      name: 'Rusira Sandul',
+      email: 'rusirasandulhw@gmail.com'
     },
     {
-      role: 'Co-Chairperson',
-      name: 'Name',
-      email: 'email@example.com'
+      role: 'Chairperson',
+      name: 'Chamathka Dilshani',
+      email: 'chamathkad1108@gmail.com'
     },
     {
       role: 'Coordinating Head',
-      name: 'Name',
-      email: 'email@example.com'
+      name: 'Chamath Heshitha',
+      email: 'chamathheshitha6@gmail.com'
     }
   ]
 
@@ -81,8 +81,10 @@ const Contact = () => {
               {/* Email Button */}
               <a
                 href={`mailto:${contact.email}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-12 h-12 mx-auto bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-full transition-all duration-300 transform hover:scale-110 group"
-                aria-label={`Email ${contact.role}`}
+                aria-label={`Email ${contact.name}`}
               >
                 <FaEnvelope className="text-white text-lg group-hover:scale-110 transition-transform" />
               </a>
