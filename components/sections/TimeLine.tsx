@@ -36,10 +36,18 @@ const TimeLine = () => {
                 <span className="text-gray-500">Time:</span>{" "}
                 <span className="font-medium">8:00 PM</span>
               </p>
-              <p className="text-gray-300">
+                <p className="text-gray-300">
                 <span className="text-gray-500">Speaker:</span>{" "}
-                <span className="font-medium">Mr. Suresh Michael Pieris</span>
-              </p>
+                <a 
+                  href="https://www.linkedin.com/in/sureshmichael/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline"
+                  style={{ color: '#002EBA' }}
+                >
+                  Mr. Suresh Michael Pieris
+                </a>
+                </p>
             </div>
           </div>
 
