@@ -13,7 +13,7 @@ const PrizePool = () => {
       gradient: "linear-gradient(135deg, #FFD700 0%, #FFA500 100%)",
       shadow: "0 20px 60px rgba(255, 215, 0, 0.3)",
       medal: "🥇",
-      perks: ["Digital Certificate", "Trophy", "Winner Title"],
+      perks: ["Digital Certificate", "Winner Title"],
       scale: 1.1,
       delay: 0,
     },
@@ -87,7 +87,7 @@ const PrizePool = () => {
 
         {/* Desktop Layout - Trophy Style */}
         <div className="hidden lg:block">
-          <div className="flex items-end justify-center gap-8 max-w-6xl mx-auto">
+          <div className="flex items-end justify-center gap-8 max-w-6xl mx-auto pb-8">
             {/* 2nd Place - Left */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -105,7 +105,8 @@ const PrizePool = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: prizes[0].delay }}
-              className="flex-1 max-w-sm -mt-12"
+              className="flex-1 max-w-sm"
+              style={{ marginBottom: '60px' }}
             >
               <PrizeCard prize={prizes[0]} isWinner />
             </motion.div>
@@ -147,7 +148,7 @@ const PrizePool = () => {
           className="mt-20 text-center"
         >
           <p className="text-gray-500 text-sm md:text-base">
-            * All participants will receive a participation certificate
+            All participants will receive a participation certificate
           </p>
         </motion.div>
       </div>
@@ -284,20 +285,6 @@ const PrizeCard = ({
             ))}
           </div>
         </div>
-
-        {/* Decorative Corner Elements */}
-        <div
-          className="absolute top-0 right-0 w-20 h-20 opacity-20"
-          style={{
-            background: `radial-gradient(circle at top right, ${prize.color}, transparent)`,
-          }}
-        ></div>
-        <div
-          className="absolute bottom-0 left-0 w-20 h-20 opacity-20"
-          style={{
-            background: `radial-gradient(circle at bottom left, ${prize.color}, transparent)`,
-          }}
-        ></div>
       </div>
 
       {/* Base Platform */}
