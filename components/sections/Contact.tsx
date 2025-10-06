@@ -9,13 +9,13 @@ const Contact = () => {
       name: 'Rusira Sandul',
       email: 'rusirasandulhw@gmail.com',
       image: '/rusiru sandul.png',
-      order: 'order-3 lg:order-1' // 3rd on mobile, 1st on desktop
+      order: 'order-2 lg:order-1' // 2nd on mobile, 1st on desktop
     },
     {
       role: 'Chairperson',
       name: 'Chamathka Dilshani',
       email: 'chamathkad1108@gmail.com',
-      image: '/Chamatha Dilshani.jpg', // No image provided
+      image: '/Chamatha Dilshani.jpg',
       order: 'order-1 lg:order-2' // 1st on mobile, 2nd (middle) on desktop
     },
     {
@@ -23,7 +23,7 @@ const Contact = () => {
       name: 'Chamath Heshitha',
       email: 'chamathheshitha6@gmail.com',
       image: '/chamath.png',
-      order: 'order-2 lg:order-3' // 2nd on mobile, 3rd on desktop
+      order: 'order-3 lg:order-3' // 3rd on mobile, 3rd on desktop
     }
   ]
 
