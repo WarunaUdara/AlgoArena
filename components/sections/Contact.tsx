@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { FaEnvelope } from 'react-icons/fa'
 
 const Contact = () => {
@@ -7,18 +8,21 @@ const Contact = () => {
       role: 'Co-Chairperson',
       name: 'Rusira Sandul',
       email: 'rusirasandulhw@gmail.com',
+      image: '/rusiru sandul.png',
       order: 'order-3 lg:order-1' // 3rd on mobile, 1st on desktop
     },
     {
       role: 'Chairperson',
       name: 'Chamathka Dilshani',
       email: 'chamathkad1108@gmail.com',
+      image: '/Chamatha Dilshani.jpg', // No image provided
       order: 'order-1 lg:order-2' // 1st on mobile, 2nd (middle) on desktop
     },
     {
       role: 'Coordinating Head',
       name: 'Chamath Heshitha',
       email: 'chamathheshitha6@gmail.com',
+      image: '/chamath.png',
       order: 'order-2 lg:order-3' // 2nd on mobile, 3rd on desktop
     }
   ]
@@ -61,14 +65,24 @@ const Contact = () => {
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              {/* Image Placeholder */}
+              {/* Profile Image */}
               <div 
                 className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-700/50 border-4 flex items-center justify-center overflow-hidden"
                 style={{ borderColor: 'rgba(0, 46, 186, 0.3)' }}
               >
-                <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
-                  <span className="text-4xl text-gray-400">👤</span>
-                </div>
+                {contact.image ? (
+                  <Image
+                    src={contact.image}
+                    alt={contact.name}
+                    width={128}
+                    height={128}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
+                    <span className="text-4xl text-gray-400">👤</span>
+                  </div>
+                )}
               </div>
 
               {/* Role */}
