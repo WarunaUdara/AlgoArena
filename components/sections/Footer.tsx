@@ -3,6 +3,15 @@ import Image from 'next/image'
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 
 const Footer = () => {
+  const leoLogos = [
+    { id: 1, src: '/University logo .png', alt: 'University of Sri Jayewardenepura' },
+    { id: 2, src: '/LCI_emblem_white.png', alt: 'Lions Clubs International' },
+    { id: 3, src: '/Leo International logo.png', alt: 'Leo International' },
+    { id: 4, src: '/LMD Logo 2025-2026.png', alt: 'Leo Multiple District 306' },
+    { id: 5, src: '/DP logo - 20252026.png', alt: 'District President Logo' },
+    { id: 6, src: '/LC USJ WHITE.png', alt: 'Leo Club USJ', isLarge: true },
+  ]
+
   return (
     <footer className="bg-black text-white py-12 relative">
       {/* Animated Border Line */}
@@ -24,6 +33,29 @@ const Footer = () => {
       </div>
       
       <div className="container mx-auto px-6 lg:px-8">
+        {/* Leo Club Logos Section */}
+        <div className="mb-12 pb-8 border-b border-white/10">
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 lg:gap-12">
+            {leoLogos.map((logo) => (
+              <div
+                key={logo.id}
+                className={`relative transition-transform duration-300 hover:scale-110 ${
+                  logo.isLarge
+                    ? 'w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48'
+                    : 'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20'
+                }`}
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
           {/* Logo and Description */}
           <div className="space-y-4">
