@@ -6,17 +6,20 @@ const Contact = () => {
     {
       role: 'Co-Chairperson',
       name: 'Rusira Sandul',
-      email: 'rusirasandulhw@gmail.com'
+      email: 'rusirasandulhw@gmail.com',
+      order: 'order-3 lg:order-1' // 3rd on mobile, 1st on desktop
     },
     {
       role: 'Chairperson',
       name: 'Chamathka Dilshani',
-      email: 'chamathkad1108@gmail.com'
+      email: 'chamathkad1108@gmail.com',
+      order: 'order-1 lg:order-2' // 1st on mobile, 2nd (middle) on desktop
     },
     {
       role: 'Coordinating Head',
       name: 'Chamath Heshitha',
-      email: 'chamathheshitha6@gmail.com'
+      email: 'chamathheshitha6@gmail.com',
+      order: 'order-2 lg:order-3' // 2nd on mobile, 3rd on desktop
     }
   ]
 
@@ -44,7 +47,7 @@ const Contact = () => {
           {contacts.map((contact, index) => (
             <div
               key={index}
-              className="backdrop-blur-sm border rounded-2xl p-8 transition-all duration-300 transform hover:scale-105"
+              className={`backdrop-blur-sm border rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 ${contact.order}`}
               style={{
                 background: 'linear-gradient(to bottom, rgba(0, 46, 186, 0.1), rgba(0, 46, 186, 0.02))',
                 borderColor: 'rgba(0, 46, 186, 0.2)',
