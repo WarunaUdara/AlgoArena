@@ -50,6 +50,13 @@ const Footer = () => {
                   alt={logo.alt}
                   fill
                   className="object-contain"
+                  loading="lazy"
+                  quality={logo.isLarge ? 95 : 80} // Higher quality for last logo
+                  sizes={
+                    logo.isLarge
+                      ? '(max-width: 640px) 96px, (max-width: 768px) 128px, (max-width: 1024px) 160px, 192px'
+                      : '(max-width: 640px) 48px, (max-width: 768px) 56px, (max-width: 1024px) 64px, 80px'
+                  }
                 />
               </div>
             ))}
@@ -65,6 +72,9 @@ const Footer = () => {
                 alt="AlgoArena Logo"
                 fill
                 className="object-contain"
+                loading="lazy"
+                quality={90}
+                sizes="160px"
               />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
@@ -94,12 +104,7 @@ const Footer = () => {
                   Timeline
                 </a>
               </li>
-              <li>
-                <a href="#contact" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
-                  <span className="mr-2 group-hover:translate-x-1 transition-transform duration-200" style={{ color: '#002EBA' }}>›</span>
-                  Guidelines
-                </a>
-              </li>
+              
             </ul>
           </div>
 

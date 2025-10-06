@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import ScrollAnimation from '../ui/scroll-animation'
 
 const Partners = () => {
   // Partner logos
@@ -18,12 +19,15 @@ const Partners = () => {
       <div className="relative container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
+          <ScrollAnimation>
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             Our Partners
           </h2>
+          </ScrollAnimation>
         </div>
 
         {/* Partners Grid */}
+        <ScrollAnimation>
         <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
           {partners.map((partner) => (
             <a
@@ -71,6 +75,7 @@ const Partners = () => {
             </a>
           ))}
         </div>
+        </ScrollAnimation>
       </div>
     </section>
   )

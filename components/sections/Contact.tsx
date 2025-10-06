@@ -1,74 +1,79 @@
-import React from 'react'
-import Image from 'next/image'
-import { FaEnvelope } from 'react-icons/fa'
+import React from "react";
+import Image from "next/image";
+import { FaEnvelope } from "react-icons/fa";
+import ScrollAnimation from "../ui/scroll-animation";
 
 const Contact = () => {
   const contacts = [
     {
-      role: 'Co-Chairperson',
-      name: 'Rusira Sandul',
-      email: 'rusirasandulhw@gmail.com',
-      image: '/rusiru sandul.png',
-      order: 'order-2 lg:order-1' // 2nd on mobile, 1st on desktop
+      role: "Co-Chairperson",
+      name: "Rusira Sandul",
+      email: "rusirasandulhw@gmail.com",
+      image: "/rusiru sandul.png",
+      order: "order-2 lg:order-1", // 2nd on mobile, 1st on desktop
     },
     {
-      role: 'Chairperson',
-      name: 'Chamathka Dilshani',
-      email: 'chamathkad1108@gmail.com',
-      image: '/Chamatha Dilshani.jpg',
-      order: 'order-1 lg:order-2' // 1st on mobile, 2nd (middle) on desktop
+      role: "Chairperson",
+      name: "Chamathka Dilshani",
+      email: "chamathkad1108@gmail.com",
+      image: "/Chamatha Dilshani.jpg",
+      order: "order-1 lg:order-2", // 1st on mobile, 2nd (middle) on desktop
     },
     {
-      role: 'Coordinating Head',
-      name: 'Chamath Heshitha',
-      email: 'chamathheshitha6@gmail.com',
-      image: '/chamath.png',
-      order: 'order-3 lg:order-3' // 3rd on mobile, 3rd on desktop
-    }
-  ]
+      role: "Coordinating Head",
+      name: "Chamath Heshitha",
+      email: "chamathheshitha6@gmail.com",
+      image: "/chamath.png",
+      order: "order-3 lg:order-3", // 3rd on mobile, 3rd on desktop
+    },
+  ];
 
   return (
     <section className="relative py-20 lg:py-32 bg-black text-white overflow-hidden">
-      
-
       {/* Content */}
       <div className="relative container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
+          <ScrollAnimation>
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             Contact Us
           </h2>
-          <p className="text-lg text-gray-400 mb-2">
-            Got questions?
-          </p>
+          </ScrollAnimation>
+          <ScrollAnimation>
+          <p className="text-lg text-gray-400 mb-2">Got questions?</p>
           <p className="text-base text-gray-400 max-w-2xl mx-auto">
-            Reach out to us, we&apos;re here to help you make the most of your hackathon experience!
+            Reach out to us, we&apos;re here to help you make the most of your
+            hackathon experience!
           </p>
+          </ScrollAnimation>
         </div>
 
         {/* Contact Cards Grid */}
+        <ScrollAnimation>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {contacts.map((contact, index) => (
             <div
               key={index}
               className={`backdrop-blur-sm border rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 ${contact.order}`}
               style={{
-                background: 'linear-gradient(to bottom, rgba(0, 46, 186, 0.1), rgba(0, 46, 186, 0.02))',
-                borderColor: 'rgba(0, 46, 186, 0.2)',
+                background:
+                  "linear-gradient(to bottom, rgba(0, 46, 186, 0.1), rgba(0, 46, 186, 0.02))",
+                borderColor: "rgba(0, 46, 186, 0.2)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(0, 46, 186, 0.4)';
-                e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 46, 186, 0.1)';
+                e.currentTarget.style.borderColor = "rgba(0, 46, 186, 0.4)";
+                e.currentTarget.style.boxShadow =
+                  "0 25px 50px -12px rgba(0, 46, 186, 0.1)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(0, 46, 186, 0.2)';
-                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.borderColor = "rgba(0, 46, 186, 0.2)";
+                e.currentTarget.style.boxShadow = "none";
               }}
             >
               {/* Profile Image */}
-              <div 
+              <div
                 className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-700/50 border-4 flex items-center justify-center overflow-hidden"
-                style={{ borderColor: 'rgba(0, 46, 186, 0.3)' }}
+                style={{ borderColor: "rgba(0, 46, 186, 0.3)" }}
               >
                 {contact.image ? (
                   <Image
@@ -108,9 +113,10 @@ const Contact = () => {
             </div>
           ))}
         </div>
+        </ScrollAnimation>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import RippleGrid from '../ui/RippleGrid';
 import  CountdownTimer  from '../ui/CountDownTimer';
+import ScrollAnimation from '../ui/scroll-animation';
 
 const About = () => {
   // Set the target date for the countdown
@@ -24,9 +25,12 @@ const About = () => {
       {/* Content */}
       <div className="relative container mx-auto px-4 text-center">
         {/* Top Text Section */}
+        <ScrollAnimation>
         <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
           What is ALGOARENA
         </h2>
+        </ScrollAnimation>
+        <ScrollAnimation>
         <p className="max-w-3xl mx-auto text-white text-base lg:text-lg leading-relaxed mb-6">
           AlgoArena is an inter-university coding competition organized by the Leo Club of the University of Sri Jayewardenepura, 
           in collaboration with the IEEE Student Branch and Computer Society Chapter.
@@ -35,15 +39,19 @@ const About = () => {
           The competition consists of two exciting rounds: an online preliminary round and a physical final round, 
           accompanied by workshops designed to enhance participants&apos; skills in competitive programming and problem-solving.
         </p>
+        </ScrollAnimation>
+        <ScrollAnimation>
         <p className="max-w-3xl mx-auto text-white text-base lg:text-lg leading-relaxed">
           Beyond the competition, AlgoArena includes a platform to showcase Leo Club projects across Sri Lanka, 
           encouraging learning, collaboration, and leadership among students. This is your opportunity to challenge yourself, 
           connect with innovators, and build something extraordinary.
         </p>
+        </ScrollAnimation>
 
         {/* Bottom Section with Image and Countdown */}
         <div className="mt-16 lg:mt-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Image */}
+          <ScrollAnimation>
           <div className="flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
               <Image
@@ -56,11 +64,14 @@ const About = () => {
               
             </div>
           </div>
+          </ScrollAnimation>
 
           {/* Countdown Timer */}
+          <ScrollAnimation>
           <div className="flex justify-center lg:justify-start px-2">
             <CountdownTimer targetDate={hackathonDate} />
           </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>
