@@ -12,6 +12,10 @@ const TimeLine = dynamic(() => import("@/components/sections/TimeLine"), {
   loading: () => <div className="min-h-screen" />,
 });
 
+const PrizePool = dynamic(() => import("@/components/sections/PrizePool"), {
+  loading: () => <div className="min-h-screen" />,
+});
+
 const Partners = dynamic(() => import("@/components/sections/Partners"), {
   loading: () => <div className="min-h-screen" />,
 });
@@ -33,6 +37,9 @@ export default function Home() {
       </section>
       <section id="timeline">
         <TimeLine />
+      </section>
+      <section id="prizes">
+        <PrizePool />
       </section>
       <section id="partners">
         <Partners />

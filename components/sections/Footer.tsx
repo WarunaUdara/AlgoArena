@@ -16,7 +16,7 @@ const Footer = () => {
         <div 
           className="absolute top-0 left-0 h-full w-40"
           style={{
-            background: 'linear-gradient(to right, transparent, #0040FF, transparent)',
+            background: 'linear-gradient(to right, transparent, #002EBA, transparent)',
             animation: 'shimmer 5s infinite linear'
           }}
         ></div>
@@ -40,25 +40,25 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a href="#home" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
-                  <span className="mr-2 text-blue-500 group-hover:translate-x-1 transition-transform duration-200">›</span>
+                  <span className="mr-2 group-hover:translate-x-1 transition-transform duration-200" style={{ color: '#002EBA' }}>›</span>
                   Home
                 </a>
               </li>
               <li>
                 <a href="#about" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
-                  <span className="mr-2 text-blue-500 group-hover:translate-x-1 transition-transform duration-200">›</span>
+                  <span className="mr-2 group-hover:translate-x-1 transition-transform duration-200" style={{ color: '#002EBA' }}>›</span>
                   About
                 </a>
               </li>
               <li>
                 <a href="#timeline" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
-                  <span className="mr-2 text-blue-500 group-hover:translate-x-1 transition-transform duration-200">›</span>
+                  <span className="mr-2 group-hover:translate-x-1 transition-transform duration-200" style={{ color: '#002EBA' }}>›</span>
                   Timeline
                 </a>
               </li>
               <li>
                 <a href="#contact" className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center group">
-                  <span className="mr-2 text-blue-500 group-hover:translate-x-1 transition-transform duration-200">›</span>
+                  <span className="mr-2 group-hover:translate-x-1 transition-transform duration-200" style={{ color: '#002EBA' }}>›</span>
                   Guidelines
                 </a>
               </li>

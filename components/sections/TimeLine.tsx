@@ -10,7 +10,7 @@ const TimeLine = () => {
       title: "Workshop Sessions",
       date: "Phase 1",
       content: (
-        <div className="border-l-2 pl-6 md:pl-8 space-y-6" style={{ borderColor: '#002EBA50' }}>
+        <div className="border-l-2 pl-6 md:pl-8 space-y-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)' }}>
           <div>
             <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
               Workshop Sessions
@@ -21,7 +21,7 @@ const TimeLine = () => {
           </div>
 
           {/* Session 1 - Detailed */}
-          <div className="bg-gradient-to-b from-blue-950/20 to-transparent border rounded-lg p-4 md:p-6" style={{ borderColor: '#002EBA30' }}>
+          <div className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)', backgroundColor: 'rgba(0, 46, 186, 0.05)' }}>
             <div className="flex items-start justify-between mb-3">
               <h4 className="text-lg md:text-xl font-semibold text-white">
                 Session 1: APIs, Databases & Cloud Integration
@@ -44,7 +44,7 @@ const TimeLine = () => {
           </div>
 
           {/* Session 2 - Coming Soon */}
-          <div className="border rounded-lg p-4 md:p-6 border-dashed" style={{ borderColor: '#002EBA20' }}>
+          <div className="border rounded-lg p-4 md:p-6 border-dashed" style={{ borderColor: 'rgba(0, 46, 186, 0.2)' }}>
             <h4 className="text-lg md:text-xl font-semibold text-white mb-2">
               Session 2
             </h4>
@@ -52,7 +52,7 @@ const TimeLine = () => {
           </div>
 
           {/* Session 3 - Coming Soon */}
-          <div className="border rounded-lg p-4 md:p-6 border-dashed" style={{ borderColor: '#002EBA20' }}>
+          <div className="border rounded-lg p-4 md:p-6 border-dashed" style={{ borderColor: 'rgba(0, 46, 186, 0.2)' }}>
             <h4 className="text-lg md:text-xl font-semibold text-white mb-2">
               Session 3
             </h4>
@@ -65,7 +65,7 @@ const TimeLine = () => {
       title: "Preliminary Round",
       date: "Phase 2",
       content: (
-        <div className="border-l-2 pl-6 md:pl-8" style={{ borderColor: '#002EBA50' }}>
+        <div className="border-l-2 pl-6 md:pl-8" style={{ borderColor: 'rgba(0, 46, 186, 0.3)' }}>
           <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
             Online Preliminary Round
           </h3>
@@ -80,7 +80,7 @@ const TimeLine = () => {
       title: "Final Round",
       date: "Phase 3",
       content: (
-        <div className="border-l-2 pl-6 md:pl-8" style={{ borderColor: '#002EBA50' }}>
+        <div className="border-l-2 pl-6 md:pl-8" style={{ borderColor: 'rgba(0, 46, 186, 0.3)' }}>
           <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
             Physical Final Round
           </h3>

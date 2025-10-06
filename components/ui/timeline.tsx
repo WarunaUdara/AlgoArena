@@ -39,17 +39,17 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                     >
                         {/* Timeline Dot and Date */}
                         <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-                            <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-black flex items-center justify-center border-2" style={{ borderColor: '#002EBA30' }}>
+                            <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-black flex items-center justify-center border-2" style={{ borderColor: 'rgba(0, 46, 186, 0.3)' }}>
                                 <div className="h-4 w-4 rounded-full shadow-lg" style={{ backgroundColor: '#002EBA', boxShadow: '0 10px 15px -3px rgba(0, 46, 186, 0.5)' }} />
                             </div>
-                            <h3 className="hidden md:block text-lg md:pl-20 md:text-2xl font-bold" style={{ color: '#002EBA' }}>
+                            <h3 className="hidden md:block text-lg md:pl-20 md:text-2xl font-bold text-white">
                                 {item.date}
                             </h3>
                         </div>
 
                         {/* Content */}
                         <div className="relative pl-20 pr-4 md:pl-4 w-full">
-                            <h3 className="md:hidden block text-xl mb-4 text-left font-bold" style={{ color: '#002EBA' }}>
+                            <h3 className="md:hidden block text-xl mb-4 text-left font-bold text-white">
                                 {item.date}
                             </h3>
                             <motion.div
@@ -70,13 +70,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                     style={{
                         height: height + "px",
                     }}
-                    className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-blue-950/50 to-transparent"
+                    className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px]"
                 >
                     <motion.div
                         style={{
                             height: heightTransform,
                             opacity: opacityTransform,
-                            background: 'linear-gradient(to bottom, #002EBA, #002EBA, #002EBA)',
+                            backgroundColor: '#002EBA',
                             boxShadow: '0 10px 15px -3px rgba(0, 46, 186, 0.5)'
                         }}
                         className="absolute inset-x-0 top-0 w-[2px] rounded-full"

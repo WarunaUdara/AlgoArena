@@ -8,7 +8,7 @@ const About = () => {
   const hackathonDate = "2025-10-15T12:00:00";
 
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden">
+    <section className="relative py-20 lg:py-32 overflow-hidden bg-black">
       {/* Background */}
       <div className="absolute inset-0 w-full h-full">
         <RippleGrid

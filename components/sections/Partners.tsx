@@ -27,13 +27,28 @@ const Partners = () => {
           {partners.map((partner) => (
             <div
               key={partner.id}
-              className="group relative bg-gradient-to-b from-blue-950/30 to-blue-950/10 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-6 h-28 flex items-center justify-center hover:border-blue-500/40 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10"
+              className="group relative backdrop-blur-sm border rounded-2xl p-6 h-28 flex items-center justify-center transition-all duration-300 transform hover:scale-105"
+              style={{
+                background: 'linear-gradient(to bottom, rgba(0, 46, 186, 0.1), rgba(0, 46, 186, 0.02))',
+                borderColor: 'rgba(0, 46, 186, 0.2)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(0, 46, 186, 0.4)';
+                e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 46, 186, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(0, 46, 186, 0.2)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             >
               {/* Placeholder text */}
               <p className="text-sm text-gray-500">{partner.name}</p>
 
               {/* Hover glow effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/0 to-blue-500/0 group-hover:from-blue-500/5 group-hover:to-transparent transition-all duration-300"></div>
+              <div 
+                className="absolute inset-0 rounded-2xl transition-all duration-300 opacity-0 group-hover:opacity-100"
+                style={{ background: 'linear-gradient(to bottom right, rgba(0, 46, 186, 0.05), transparent)' }}
+              ></div>
             </div>
           ))}
         </div>

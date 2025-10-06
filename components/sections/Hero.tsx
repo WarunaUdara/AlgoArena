@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Plasma from "../ui/Plasma";
 import BlurText from "../ui/BlurText";
-import TextGenerateEffect from "../ui/TextGenerateEffect";
+import { TextGenerateEffect } from "../ui/TextGenerateEffect";
 
 const Hero = () => {
   const [startTextGenerate, setStartTextGenerate] = useState(false);
@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden will-change-transform">
+    <section className="relative min-h-screen overflow-hidden will-change-transform bg-black">
       {/* Animated Background */}
       <div className="absolute inset-0 transform-gpu">
         <Plasma
@@ -28,7 +28,7 @@ const Hero = () => {
       <div className="relative z-10 min-h-screen flex items-center justify-center transform-gpu">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-center min-h-screen lg:min-h-0">
-            {/* Centered Content */}
+            
             <div className="text-center max-w-4xl mx-auto">
               <BlurText
                 text="ALGOARENA"
@@ -36,7 +36,7 @@ const Hero = () => {
                 animateBy="letters"
                 direction="top"
                 onAnimationComplete={handleAnimationComplete}
-                className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-wider mb-4 text-white w-full justify-center"
+                className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-wider mb-4 text-white w-full justify-center"
               />
               
               <TextGenerateEffect
@@ -49,12 +49,12 @@ const Hero = () => {
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="px-8 py-4 lg:px-10 lg:py-5 bg-white hover:bg-gray-100 text-black rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform text-lg">
+                <button className="px-8 py-4 lg:px-10 lg:py-5 bg-white hover:bg-gray-100 text-black text-lg rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform">
                   register →
                 </button>
                 <a 
                   href="#about"
-                  className="px-8 py-4 lg:px-10 lg:py-5 border border-white/30 text-white hover:bg-white/10 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center will-change-transform text-lg"
+                  className="px-8 py-4 lg:px-10 lg:py-5 border border-white/30 text-white text-lg hover:bg-white/10 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center will-change-transform"
                 >
                   learn more ↓
                 </a>

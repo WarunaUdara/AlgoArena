@@ -44,10 +44,25 @@ const Contact = () => {
           {contacts.map((contact, index) => (
             <div
               key={index}
-              className="bg-gradient-to-b from-blue-950/30 to-blue-950/10 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 hover:border-blue-500/40 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10"
+              className="backdrop-blur-sm border rounded-2xl p-8 transition-all duration-300 transform hover:scale-105"
+              style={{
+                background: 'linear-gradient(to bottom, rgba(0, 46, 186, 0.1), rgba(0, 46, 186, 0.02))',
+                borderColor: 'rgba(0, 46, 186, 0.2)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(0, 46, 186, 0.4)';
+                e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 46, 186, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(0, 46, 186, 0.2)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             >
               {/* Image Placeholder */}
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-700/50 border-4 border-blue-500/30 flex items-center justify-center overflow-hidden">
+              <div 
+                className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-700/50 border-4 flex items-center justify-center overflow-hidden"
+                style={{ borderColor: 'rgba(0, 46, 186, 0.3)' }}
+              >
                 <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
                   <span className="text-4xl text-gray-400">👤</span>
                 </div>
