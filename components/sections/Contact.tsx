@@ -9,14 +9,14 @@ const Contact = () => {
       role: "Co-Chairperson",
       name: "Rusira Sandul",
       email: "rusirasandulhw@gmail.com",
-      image: "/rusiru sandul.png",
+      image: "/rusira sandul-3.jpg",
       order: "order-2 lg:order-1", // 2nd on mobile, 1st on desktop
     },
     {
       role: "Chairperson",
       name: "Chamathka Dilshani",
       email: "chamathkad1108@gmail.com",
-      image: "/Chamatha Dilshani.jpg",
+      image: "/Chamathka Dilshani.jpg",
       order: "order-1 lg:order-2", // 1st on mobile, 2nd (middle) on desktop
     },
     {
