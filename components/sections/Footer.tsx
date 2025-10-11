@@ -112,22 +112,28 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-6 text-white">Connect With Us</h3>
             <div className="flex space-x-4">
-              <a 
-                href="#" 
+                <a 
+                href="https://www.facebook.com/share/1MTaDfWj45/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:bg-gray-200 transition-all duration-300 transform hover:scale-110"
                 aria-label="Facebook"
-              >
+                >
                 <FaFacebookF size={20} />
-              </a>
+                </a>
               <a 
-                href="#" 
+                href="https://www.instagram.com/leo_club_usj?igsh=MW10Y3ZqMGNjMHVnbg==" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:bg-gray-200 transition-all duration-300 transform hover:scale-110"
                 aria-label="Instagram"
               >
                 <FaInstagram size={20} />
               </a>
               <a 
-                href="#" 
+                href="https://www.linkedin.com/company/leo-club-of-university-of-sri-jayewardenepura/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:bg-gray-200 transition-all duration-300 transform hover:scale-110"
                 aria-label="LinkedIn"
               >
