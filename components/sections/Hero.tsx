@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import Plasma from "../ui/Plasma";
 import BlurText from "../ui/BlurText";
 import { TextGenerateEffect } from "../ui/TextGenerateEffect";
 
 const Hero = () => {
   const [startTextGenerate, setStartTextGenerate] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
 
   const handleAnimationComplete = () => {
     console.log("BlurText animation completed!");
     setStartTextGenerate(true);
+    // Show buttons after a short delay
+    setTimeout(() => setShowButtons(true), 800);
   };
 
   return (
@@ -48,21 +52,46 @@ const Hero = () => {
                 startAnimation={startTextGenerate}
               />
 
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* Buttons with Fade Animation - Theme Aligned with Rounded Corners */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={showButtons ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                {/* Primary Button - Blue Theme with Softer Corners */}
                 <Link 
                   href="/registration"
-                  className="px-8 py-4 lg:px-10 lg:py-5 bg-white hover:bg-gray-100 text-black text-lg rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform"
+                  className="group relative px-8 py-4 lg:px-10 lg:py-5 bg-[#002EBA] hover:bg-[#0039d4] text-white text-lg rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform overflow-hidden shadow-lg hover:shadow-xl hover:shadow-[#002EBA]/20"
                 >
-                  register →
+                  {/* Shimmer effect on hover */}
+                  <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
+                  </span>
+                  <span className="relative flex items-center gap-2">
+                    Register Now
+                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
                 </Link>
+
+                {/* Secondary Button - Outlined Theme with Softer Corners */}
                 <a 
                   href="#about"
-                  className="px-8 py-4 lg:px-10 lg:py-5 border border-white/30 text-white text-lg hover:bg-white/10 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center will-change-transform"
+                  className="group relative px-8 py-4 lg:px-10 lg:py-5 bg-transparent border-2 border-[#002EBA] text-white hover:bg-[#002EBA]/10 text-lg rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform backdrop-blur-sm hover:shadow-lg hover:shadow-[#002EBA]/10"
                 >
-                  learn more ↓
+                  <span className="relative flex items-center gap-2">
+                    Learn More
+                    <svg className="w-5 h-5 transform group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  </span>
                 </a>
-              </div>
+              </motion.div>
             </div>
 
             
