@@ -105,8 +105,7 @@ const PrizePool = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: prizes[0].delay }}
-              className="flex-1 max-w-sm"
-              style={{ marginBottom: '60px' }}
+              className="flex-1 max-w-sm mb-8 lg:mb-12"
             >
               <PrizeCard prize={prizes[0]} isWinner />
             </motion.div>
@@ -145,7 +144,7 @@ const PrizePool = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-5 text-center"
+          className="mt-12 text-center"
         >
           <p className="text-gray-500 text-sm md:text-base">
             All participants will receive a participation certificate
@@ -179,123 +178,130 @@ const PrizeCard = ({
   isWinner?: boolean;
 }) => {
   return (
-    <motion.div
-      whileHover={{ scale: 1.05, y: -10 }}
-      transition={{ duration: 0.3 }}
-      className="relative group"
-    >
-      {/* Winner Crown */}
-      {isWinner && (
-        <motion.div
-          initial={{ scale: 0, rotate: -180 }}
-          whileInView={{ scale: 1, rotate: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-5xl z-10"
-        >
-          👑
-        </motion.div>
-      )}
-
-      {/* Card Container */}
-      <div
-        className="relative backdrop-blur-sm border-2 rounded-3xl p-8 overflow-hidden transition-all duration-500"
-        style={{
-          borderColor: prize.color,
-          background: `linear-gradient(to bottom, rgba(0, 46, 186, 0.05), rgba(0, 0, 0, 0.5))`,
-          boxShadow: `0 10px 40px rgba(0, 46, 186, 0.2)`,
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.boxShadow = prize.shadow;
-          e.currentTarget.style.borderColor = prize.color;
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.boxShadow = `0 10px 40px rgba(0, 46, 186, 0.2)`;
-          e.currentTarget.style.borderColor = prize.color;
-        }}
+    <div className="relative">
+      <motion.div
+        whileHover={{ scale: 1.05, y: -10 }}
+        transition={{ duration: 0.3 }}
+        className="relative group"
       >
-        {/* Glow Effect */}
+        
+
+        {/* Card Container */}
         <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          className="relative backdrop-blur-sm border-2 rounded-3xl p-8 overflow-hidden transition-all duration-500"
           style={{
-            background: `radial-gradient(circle at 50% 0%, ${prize.color}15, transparent 70%)`,
+            borderColor: prize.color,
+            background: `linear-gradient(to bottom, rgba(0, 46, 186, 0.05), rgba(0, 0, 0, 0.5))`,
+            boxShadow: `0 10px 40px rgba(0, 46, 186, 0.2)`,
           }}
-        ></div>
-
-        {/* Content */}
-        <div className="relative z-10">
-          {/* Medal */}
-          <div className="flex justify-center mb-4">
-            <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-              className="text-6xl"
-            >
-              {prize.medal}
-            </motion.div>
-          </div>
-
-          {/* Place */}
-          <h3
-            className="text-2xl font-bold text-center mb-2"
-            style={{ color: prize.color }}
-          >
-            {prize.place} Place
-          </h3>
-
-          {/* Title */}
-          <p className="text-gray-400 text-center mb-6 text-sm font-medium">
-            {prize.title}
-          </p>
-
-          {/* Amount */}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = prize.shadow;
+            e.currentTarget.style.borderColor = prize.color;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = `0 10px 40px rgba(0, 46, 186, 0.2)`;
+            e.currentTarget.style.borderColor = prize.color;
+          }}
+        >
+          {/* Glow Effect */}
           <div
-            className="text-center mb-6 py-4 px-6 rounded-xl backdrop-blur-sm border"
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             style={{
-              background: `${prize.color}10`,
-              borderColor: `${prize.color}30`,
+              background: `radial-gradient(circle at 50% 0%, ${prize.color}15, transparent 70%)`,
             }}
-          >
-            <p
-              className="text-4xl font-bold tracking-wider"
+          ></div>
+
+          {/* Content */}
+          <div className="relative z-10">
+            {/* Medal */}
+            <div className="flex justify-center mb-4">
+              <motion.div
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                className="text-6xl"
+              >
+                {prize.medal}
+              </motion.div>
+            </div>
+
+            {/* Place */}
+            <h3
+              className="text-2xl font-bold text-center mb-2"
+              style={{ color: prize.color }}
+            >
+              {prize.place} Place
+            </h3>
+
+            {/* Title */}
+            <p className="text-gray-400 text-center mb-6 text-sm font-medium">
+              {prize.title}
+            </p>
+
+            {/* Amount */}
+            <div
+              className="text-center mb-6 py-4 px-6 rounded-xl backdrop-blur-sm border"
               style={{
-                background: prize.gradient,
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
+                background: `${prize.color}10`,
+                borderColor: `${prize.color}30`,
               }}
             >
-              {prize.amount}
-            </p>
-          </div>
-
-          {/* Perks */}
-          <div className="space-y-2">
-            {prize.perks.map((perk: string, index: number) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 text-gray-300 text-sm"
+              <p
+                className="text-4xl font-bold tracking-wider"
+                style={{
+                  background: prize.gradient,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
               >
+                {prize.amount}
+              </p>
+            </div>
+
+            {/* Perks */}
+            <div className="space-y-2">
+              {prize.perks.map((perk: string, index: number) => (
                 <div
-                  className="w-1.5 h-1.5 rounded-full"
-                  style={{ background: prize.color }}
-                ></div>
-                <span>{perk}</span>
-              </div>
-            ))}
+                  key={index}
+                  className="flex items-center gap-2 text-gray-300 text-sm"
+                >
+                  <div
+                    className="w-1.5 h-1.5 rounded-full"
+                    style={{ background: prize.color }}
+                  ></div>
+                  <span>{perk}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Reflection Effect */}
+      <div 
+        className="relative mt-2 overflow-hidden rounded-b-3xl"
+        style={{
+          height: '40px',
+          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%)',
+        }}
+      >
+        <div
+          className="backdrop-blur-sm border-2 rounded-3xl p-8 transform scale-y-[-1] opacity-20"
+          style={{
+            borderColor: prize.color,
+            background: `linear-gradient(to bottom, rgba(0, 46, 186, 0.05), rgba(0, 0, 0, 0.5))`,
+          }}
+        >
+          {/* Reflection Medal */}
+          <div className="flex justify-center">
+            <div className="text-6xl opacity-50">
+              {prize.medal}
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Base Platform */}
-      <div
-        className="h-4 mt-2 rounded-b-lg"
-        style={{
-          background: `linear-gradient(to bottom, ${prize.color}40, ${prize.color}10)`,
-          boxShadow: `0 5px 15px ${prize.color}30`,
-        }}
-      ></div>
-    </motion.div>
+    </div>
   );
 };
 
