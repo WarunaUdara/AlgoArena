@@ -6,7 +6,7 @@ import ScrollAnimation from '../ui/scroll-animation';
 
 const About = () => {
   // Set the target date for the countdown
-  const registrationDate = "2025-10-10T12:00:00";
+  const registrationDate = "2025-10-13T12:00:00";
 
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden bg-black">

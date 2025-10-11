@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import Plasma from "../ui/Plasma";
 import BlurText from "../ui/BlurText";
 import { TextGenerateEffect } from "../ui/TextGenerateEffect";
@@ -49,9 +50,12 @@ const Hero = () => {
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="px-8 py-4 lg:px-10 lg:py-5 bg-white hover:bg-gray-100 text-black text-lg rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform">
+                <Link 
+                  href="/registration"
+                  className="px-8 py-4 lg:px-10 lg:py-5 bg-white hover:bg-gray-100 text-black text-lg rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform"
+                >
                   register →
-                </button>
+                </Link>
                 <a 
                   href="#about"
                   className="px-8 py-4 lg:px-10 lg:py-5 border border-white/30 text-white text-lg hover:bg-white/10 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center will-change-transform"
