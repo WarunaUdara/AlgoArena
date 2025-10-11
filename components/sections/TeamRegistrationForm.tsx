@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
+import { registerTeam } from "@/lib/firebase/teamRegistration";
 
 interface TeamMember {
   id: string;
@@ -21,6 +22,8 @@ const TeamRegistrationForm = () => {
     whatsappNo: "",
   });
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState({ type: "", message: "" });
 
   const handleAddMember = () => {
     if (teamMembers.length < 3) {
@@ -52,28 +55,89 @@ const TeamRegistrationForm = () => {
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log({
-      teamName,
-      universityName,
-      teamLeader,
-      teamMembers,
-    });
+    setIsSubmitting(true);
+    setSubmitMessage({ type: "", message: "" });
+
+    try {
+      // Prepare team data
+      const teamData = {
+        teamName,
+        universityName,
+        teamLeader: {
+          name: teamLeader.name,
+          email: teamLeader.email,
+          whatsappNo: teamLeader.whatsappNo,
+        },
+        teamMembers: teamMembers.map(({ name, email, whatsappNo }) => ({
+          name,
+          email,
+          whatsappNo,
+        })),
+      };
+
+      // Submit to Firebase
+      const result = await registerTeam(teamData);
+
+      if (result.success) {
+        setSubmitMessage({
+          type: "success",
+          message: result.message,
+        });
+
+        // Reset form after 2 seconds and redirect
+        setTimeout(() => {
+          router.push("/?registered=true");
+        }, 2000);
+      } else {
+        setSubmitMessage({
+          type: "error",
+          message: result.message,
+        });
+      }
+    } catch (error: any) {
+      setSubmitMessage({
+        type: "error",
+        message: error.message || "An unexpected error occurred. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleCancel = () => {
     router.push("/");
   };
 
+  // Check if all currently displayed member fields are filled
+  const areAllCurrentMembersFilled = () => {
+    // Check if team leader is filled
+    const isLeaderFilled =
+      teamLeader.name.trim() !== "" &&
+      teamLeader.email.trim() !== "" &&
+      teamLeader.whatsappNo.trim() !== "";
+
+    // Check if all added team members are filled
+    const areAllMembersFilled = teamMembers.every(
+      (member) =>
+        member.name.trim() !== "" &&
+        member.email.trim() !== "" &&
+        member.whatsappNo.trim() !== ""
+    );
+
+    return isLeaderFilled && areAllMembersFilled;
+  };
+
+  const canAddNewMember = areAllCurrentMembersFilled();
+
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 py-20">
+    <div className="min-h-screen flex items-center justify-center p-4 py-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-md relative"
+        className="w-full max-w-md lg:max-w-2xl relative"
       >
         {/* Animated Border Container */}
         <div className="relative">
@@ -107,6 +171,21 @@ const TeamRegistrationForm = () => {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Success/Error Message */}
+              {submitMessage.message && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`p-4 rounded-lg border ${
+                    submitMessage.type === "success"
+                      ? "bg-green-500/10 border-green-500/50 text-green-400"
+                      : "bg-red-500/10 border-red-500/50 text-red-400"
+                  }`}
+                >
+                  {submitMessage.message}
+                </motion.div>
+              )}
+
               {/* Team Name */}
               <div>
                 <label className="block text-white font-medium mb-2">
@@ -147,7 +226,7 @@ const TeamRegistrationForm = () => {
                 </label>
 
                 {/* Team Leader */}
-                <div className="mb-4">
+                <div className="mb-4 bg-[#0a1020]/30 border border-gray-800/50 rounded-lg p-4">
                   <h3 className="text-white font-medium mb-3">
                     Team Leader <span className="text-red-500">*</span>
                   </h3>
@@ -210,7 +289,7 @@ const TeamRegistrationForm = () => {
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
-                    className="mb-4 pb-4 border-b border-gray-800/50"
+                    className="mb-4 bg-[#0a1020]/30 border border-gray-800/50 rounded-lg p-4"
                   >
                     <div className="flex justify-between items-center mb-3">
                       <h3 className="text-white font-medium">
@@ -280,9 +359,16 @@ const TeamRegistrationForm = () => {
                   <button
                     type="button"
                     onClick={handleAddMember}
-                    className="w-full py-3 border-2 border-dashed border-gray-700 rounded-lg text-gray-400 hover:border-[#002EBA] hover:text-[#002EBA] transition-colors"
+                    disabled={!canAddNewMember}
+                    className={`w-full py-3 border-2 border-dashed rounded-lg font-medium transition-all ${
+                      canAddNewMember
+                        ? "border-gray-700 text-gray-400 hover:border-[#002EBA] hover:text-[#002EBA] hover:bg-[#002EBA]/5 cursor-pointer"
+                        : "border-gray-800 text-gray-600 cursor-not-allowed opacity-50"
+                    }`}
                   >
-                    Fill current member details to add more
+                    {canAddNewMember
+                      ? "+ Add New Member"
+                      : "Fill current member details to add more"}
                   </button>
                 )}
               </div>
@@ -292,15 +378,43 @@ const TeamRegistrationForm = () => {
                 <button
                   type="button"
                   onClick={handleCancel}
-                  className="flex-1 px-6 py-3 bg-[#1a2332] text-white rounded-lg font-medium hover:bg-[#22293a] transition-colors"
+                  disabled={isSubmitting}
+                  className="flex-1 px-6 py-3 bg-[#1a2332] text-white rounded-lg font-medium hover:bg-[#22293a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 px-6 py-3 bg-[#002EBA] text-white rounded-lg font-medium hover:bg-[#0039d6] transition-colors"
+                  disabled={isSubmitting}
+                  className="flex-1 px-6 py-3 bg-[#002EBA] text-white rounded-lg font-medium hover:bg-[#0039d6] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  Register Team
+                  {isSubmitting ? (
+                    <>
+                      <svg
+                        className="animate-spin h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      Registering...
+                    </>
+                  ) : (
+                    "Register Team"
+                  )}
                 </button>
               </div>
             </form>

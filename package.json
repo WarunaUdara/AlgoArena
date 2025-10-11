@@ -30,6 +30,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "firebase": "^12.4.0",
     "motion": "^12.23.22",
     "next": "15.5.3",
     "ogl": "^1.0.11",
