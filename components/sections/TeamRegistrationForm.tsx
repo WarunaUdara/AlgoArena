@@ -96,10 +96,10 @@ const TeamRegistrationForm = () => {
           message: result.message,
         });
       }
-    } catch (error: any) {
+    } catch (error) {
       setSubmitMessage({
         type: "error",
-        message: error.message || "An unexpected error occurred. Please try again.",
+        message: error instanceof Error ? error.message : "An unexpected error occurred. Please try again.",
       });
     } finally {
       setIsSubmitting(false);

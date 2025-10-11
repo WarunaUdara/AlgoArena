@@ -1,5 +1,5 @@
 // Firebase functions for team registration
-import { collection, addDoc, serverTimestamp, query, where, getDocs } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, query, where, getDocs, Timestamp } from "firebase/firestore";
 import { db } from "./config";
 
 export interface TeamMember {
@@ -13,7 +13,7 @@ export interface TeamRegistrationData {
   universityName: string;
   teamLeader: TeamMember;
   teamMembers: TeamMember[];
-  createdAt?: any;
+  createdAt?: Timestamp;
   status?: string;
 }
 
@@ -56,11 +56,11 @@ export const registerTeam = async (teamData: TeamRegistrationData) => {
       teamId: docRef.id,
       message: "Team registered successfully!",
     };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error registering team:", error);
     return {
       success: false,
-      message: error.message || "Failed to register team. Please try again.",
+      message: error instanceof Error ? error.message : "Failed to register team. Please try again.",
     };
   }
 };
