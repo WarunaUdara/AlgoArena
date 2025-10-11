@@ -152,7 +152,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-2">
               <span className="text-gray-600">©</span>
-              <p className="whitespace-nowrap">2025 AlgoArena. All Rights Reserved.</p>
+              <p className="whitespace-nowrap">2025 ALGOARENA. All Rights Reserved.</p>
             </div>
           </div>
         </div>
