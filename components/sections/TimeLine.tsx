@@ -55,7 +55,7 @@ const TimeLine = () => {
           <div className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)', backgroundColor: 'rgba(0, 46, 186, 0.05)' }}>
             <div className="flex items-start justify-between mb-3">
               <h4 className="text-lg md:text-xl font-semibold text-white">
-                Session 3: UI/UX & best Practices to Mobile app Development
+                Session 2: UI/UX & best Practices to Mobile app Development
               </h4>
             </div>
             <div className="space-y-2 text-sm md:text-base">
