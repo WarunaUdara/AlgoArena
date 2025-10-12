@@ -30,7 +30,7 @@ const About = () => {
         </ScrollAnimation>
         <ScrollAnimation>
           <p className="max-w-3xl mx-auto text-white text-base lg:text-lg leading-relaxed mb-6">
-            AlgoArena is an inter-university coding competition organized by the Leo Club of the University of Sri Jayewardenepura, 
+            AlgoArena is an inter-university coding competition organized by the Leo Club of University of Sri Jayewardenepura, 
             in collaboration with the IEEE Student Branch and Computer Society Chapter.
           </p>
           <p className="max-w-3xl mx-auto text-white text-base lg:text-lg leading-relaxed mb-6">
