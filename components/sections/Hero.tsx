@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import Plasma from "../ui/Plasma";
 import BlurText from "../ui/BlurText";
@@ -52,7 +51,7 @@ const Hero = () => {
                 startAnimation={startTextGenerate}
               />
 
-              {/* Buttons with Fade Animation - Theme Aligned with Rounded Corners */}
+              {/* Buttons with Fade Animation - Registration Disabled */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={showButtons ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -62,24 +61,19 @@ const Hero = () => {
                 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                {/* Primary Button - Blue Theme with Softer Corners */}
-                <Link 
-                  href="/registration"
-                  className="group relative px-8 py-4 lg:px-10 lg:py-5 bg-[#002EBA] hover:bg-[#0039d4] text-white text-lg rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform overflow-hidden shadow-lg hover:shadow-xl hover:shadow-[#002EBA]/20"
+                {/* Primary Button - Disabled Registration */}
+                <div 
+                  className="px-8 py-4 lg:px-10 lg:py-5 bg-gray-600 text-gray-300 text-lg rounded-xl font-semibold flex items-center justify-center  opacity-60"
                 >
-                  {/* Shimmer effect on hover */}
-                  <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-20 transition-opacity duration-300">
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
-                  </span>
-                  <span className="relative flex items-center gap-2">
-                    Register Now
-                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  <span className="flex items-center gap-2">
+                    Registration Coming Soon
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
                   </span>
-                </Link>
+                </div>
 
-                {/* Secondary Button - Outlined Theme with Softer Corners */}
+                {/* Secondary Button - Learn More (Active) */}
                 <a 
                   href="#about"
                   className="group relative px-8 py-4 lg:px-10 lg:py-5 bg-transparent border-2 border-[#002EBA] text-white hover:bg-[#002EBA]/10 text-lg rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform backdrop-blur-sm hover:shadow-lg hover:shadow-[#002EBA]/10"
