@@ -6,7 +6,7 @@ import ScrollAnimation from '../ui/scroll-animation';
 const About = () => {
   // Define milestone dates
   const registrationOpenDate = "2025-10-13T12:00:00";
-  const registrationCloseDate = "2025-10-25T12:00:00";
+  const registrationCloseDate = "2025-10-27T12:00:00";
 
   // State to track current phase
   const [currentPhase, setCurrentPhase] = useState<{
