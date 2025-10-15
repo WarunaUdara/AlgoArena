@@ -12,7 +12,7 @@ const Hero = () => {
 
   // Registration dates
   const registrationOpenDate = "2025-10-13T12:00:00";
-  const registrationCloseDate = "2025-10-25T12:00:00";
+  const registrationCloseDate = "2025-10-27T12:00:00";
 
   useEffect(() => {
     const checkRegistrationStatus = () => {
