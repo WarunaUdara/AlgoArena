@@ -61,11 +61,11 @@ const TimeLine = () => {
             <div className="space-y-2 text-sm md:text-base">
               <p className="text-gray-300">
                 <span className="text-gray-500">Date:</span>{" "}
-                <span className="font-medium" style={{ color: '#FFFFFF' }}>October 18th, 2025</span>
+                <span className="font-medium" style={{ color: '#FFFFFF' }}>October 19th, 2025</span>
               </p>
               <p className="text-gray-300">
                 <span className="text-gray-500">Time:</span>{" "}
-                <span className="font-medium">8:00 PM</span>
+                <span className="font-medium">7:00 PM</span>
               </p>
                 <p className="text-gray-300">
                 <span className="text-gray-500">Speaker:</span>{" "}
