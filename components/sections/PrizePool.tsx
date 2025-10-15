@@ -7,7 +7,7 @@ const PrizePool = () => {
   const prizes = [
     {
       place: "1st",
-      amount: "RS.30,000",
+      amount: "RS.50,000",
       title: "Champion",
       color: "#FFD700",
       gradient: "linear-gradient(135deg, #FFD700 0%, #FFA500 100%)",
@@ -19,7 +19,7 @@ const PrizePool = () => {
     },
     {
       place: "2nd",
-      amount: "RS.20,000",
+      amount: "RS.30,000",
       title: "Runner Up",
       color: "#C0C0C0",
       gradient: "linear-gradient(135deg, #E8E8E8 0%, #A8A8A8 100%)",
@@ -31,7 +31,7 @@ const PrizePool = () => {
     },
     {
       place: "3rd",
-      amount: "RS.10,000",
+      amount: "RS.20,000",
       title: "Third Place",
       color: "#CD7F32",
       gradient: "linear-gradient(135deg, #D4A574 0%, #8B6914 100%)",
@@ -75,7 +75,7 @@ const PrizePool = () => {
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="h-[2px] w-16 bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
             <p className="text-xl md:text-2xl font-semibold" style={{ color: "#FFD700" }}>
-              Total: RS.60,000
+              Total: RS.100,000
             </p>
             <div className="h-[2px] w-16 bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
           </div>
