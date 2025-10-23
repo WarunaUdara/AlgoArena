@@ -7,10 +7,7 @@ import { useRouter } from "next/navigation";
 const PrototypeSubmissionForm = () => {
   const router = useRouter();
   const [teamName, setTeamName] = useState("");
-  const [projectTitle, setProjectTitle] = useState("");
-  const [projectDescription, setProjectDescription] = useState("");
-  const [githubRepo, setGithubRepo] = useState("");
-  const [demoVideo, setDemoVideo] = useState("");
+  const [googleDriveLink, setGoogleDriveLink] = useState("");
   const [teamLeaderEmail, setTeamLeaderEmail] = useState("");
   const [additionalNotes, setAdditionalNotes] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -25,10 +22,7 @@ const PrototypeSubmissionForm = () => {
       // Prepare prototype data
       const prototypeData = {
         teamName,
-        projectTitle,
-        projectDescription,
-        githubRepo,
-        demoVideo,
+        googleDriveLink,
         teamLeaderEmail,
         additionalNotes,
         submittedAt: new Date().toISOString(),
@@ -136,66 +130,21 @@ const PrototypeSubmissionForm = () => {
                 />
               </div>
 
-              {/* Project Title */}
+              {/* Google Drive Link */}
               <div>
                 <label className="block text-white font-medium mb-2">
-                  Project Title <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  value={projectTitle}
-                  onChange={(e) => setProjectTitle(e.target.value)}
-                  placeholder="Enter your project title"
-                  required
-                  className="w-full px-4 py-3 bg-[#0a1020] border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#002EBA] transition-colors"
-                />
-              </div>
-
-              {/* Project Description */}
-              <div>
-                <label className="block text-white font-medium mb-2">
-                  Project Description <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  value={projectDescription}
-                  onChange={(e) => setProjectDescription(e.target.value)}
-                  placeholder="Describe your project, its features, and how it solves the problem"
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 bg-[#0a1020] border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#002EBA] transition-colors resize-vertical"
-                />
-              </div>
-
-              {/* GitHub Repository */}
-              <div>
-                <label className="block text-white font-medium mb-2">
-                  GitHub Repository URL <span className="text-red-500">*</span>
+                  Google Drive Link <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="url"
-                  value={githubRepo}
-                  onChange={(e) => setGithubRepo(e.target.value)}
-                  placeholder="https://github.com/username/repository"
-                  required
-                  className="w-full px-4 py-3 bg-[#0a1020] border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#002EBA] transition-colors"
-                />
-              </div>
-
-              {/* Demo Video */}
-              <div>
-                <label className="block text-white font-medium mb-2">
-                  Demo Video URL <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="url"
-                  value={demoVideo}
-                  onChange={(e) => setDemoVideo(e.target.value)}
-                  placeholder="https://youtube.com/watch?v=... or https://drive.google.com/..."
+                  value={googleDriveLink}
+                  onChange={(e) => setGoogleDriveLink(e.target.value)}
+                  placeholder="https://drive.google.com/..."
                   required
                   className="w-full px-4 py-3 bg-[#0a1020] border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#002EBA] transition-colors"
                 />
                 <p className="text-gray-500 text-xs mt-1">
-                  Upload your demo video to YouTube or Google Drive and paste the link here
+                  Share your Google Drive folder/file with view access and paste the link here
                 </p>
               </div>
 
