@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
+import { submitPrototype } from "@/lib/firebase/prototypeSubmission";
 
 const PrototypeSubmissionForm = () => {
   const router = useRouter();
@@ -21,28 +22,31 @@ const PrototypeSubmissionForm = () => {
     try {
       // Prepare prototype data
       const prototypeData = {
-        teamName,
-        googleDriveLink,
-        teamLeaderEmail,
-        additionalNotes,
-        submittedAt: new Date().toISOString(),
+        teamName: teamName.trim(),
+        googleDriveLink: googleDriveLink.trim(),
+        teamLeaderEmail: teamLeaderEmail.trim(),
+        additionalNotes: additionalNotes.trim(),
       };
 
-      // TODO: Submit to Firebase or backend
-      console.log("Prototype submission data:", prototypeData);
+      // Submit to Firebase with verification
+      const result = await submitPrototype(prototypeData);
 
-      // Simulate submission
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      if (result.success) {
+        setSubmitMessage({
+          type: "success",
+          message: result.message,
+        });
 
-      setSubmitMessage({
-        type: "success",
-        message: "Prototype submitted successfully! 🎉",
-      });
-
-      // Reset form after 2 seconds and redirect
-      setTimeout(() => {
-        router.push("/?submitted=true");
-      }, 2000);
+        // Reset form after 2 seconds and redirect
+        setTimeout(() => {
+          router.push("/?submitted=true");
+        }, 2000);
+      } else {
+        setSubmitMessage({
+          type: "error",
+          message: result.message,
+        });
+      }
     } catch (error) {
       setSubmitMessage({
         type: "error",
@@ -96,6 +100,11 @@ const PrototypeSubmissionForm = () => {
               <p className="text-gray-400 text-sm">
                 Submit your project prototype for AlgoArena 2025
               </p>
+              <div className="mt-4 p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+                <p className="text-blue-400 text-xs">
+                  ℹ️ Your team must be registered before submitting. Use the same team name and team leader email from your registration.
+                </p>
+              </div>
             </div>
 
             {/* Form */}
@@ -124,10 +133,13 @@ const PrototypeSubmissionForm = () => {
                   type="text"
                   value={teamName}
                   onChange={(e) => setTeamName(e.target.value)}
-                  placeholder="Enter your team name"
+                  placeholder="Enter your registered team name"
                   required
                   className="w-full px-4 py-3 bg-[#0a1020] border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#002EBA] transition-colors"
                 />
+                <p className="text-gray-500 text-xs mt-1">
+                  Use the exact team name you used during registration
+                </p>
               </div>
 
               {/* Google Drive Link */}
@@ -161,6 +173,9 @@ const PrototypeSubmissionForm = () => {
                   required
                   className="w-full px-4 py-3 bg-[#0a1020] border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#002EBA] transition-colors"
                 />
+                <p className="text-gray-500 text-xs mt-1">
+                  Must match the team leader email used during registration
+                </p>
               </div>
 
               {/* Additional Notes */}
