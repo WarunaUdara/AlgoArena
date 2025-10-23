@@ -118,18 +118,18 @@ const Hero = () => {
                   </div>
                 )}
 
-                {/* Secondary Button - Learn More (Always Active) */}
-                <a 
-                  href="#about"
+                {/* Secondary Button - Prototype Submission (Always Active) */}
+                <Link 
+                  href="/prototype-submission"
                   className="group relative px-8 py-4 lg:px-10 lg:py-5 bg-transparent border-2 border-[#002EBA] text-white hover:bg-[#002EBA]/10 text-lg rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform backdrop-blur-sm hover:shadow-lg hover:shadow-[#002EBA]/10"
                 >
                   <span className="relative flex items-center gap-2">
-                    Learn More
-                    <svg className="w-5 h-5 transform group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    Prototype Submission
+                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
                   </span>
-                </a>
+                </Link>
               </motion.div>
             </div>
 
