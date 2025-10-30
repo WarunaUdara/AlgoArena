@@ -82,13 +82,67 @@ const TimeLine = () => {
             </div>
           </div>
 
-          {/* Session 3 - Coming Soon */}
-          <div className="border rounded-lg p-4 md:p-6 border-dashed" style={{ borderColor: 'rgba(0, 46, 186, 0.2)' }}>
-            <h4 className="text-lg md:text-xl font-semibold text-white mb-2">
-              Session 3
-            </h4>
-            <p className="text-gray-500 text-sm md:text-base">Coming Soon</p>
+          {/* Session 3  */}
+          <div className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)', backgroundColor: 'rgba(0, 46, 186, 0.05)' }}>
+            <div className="flex items-start justify-between mb-3">
+              <h4 className="text-lg md:text-xl font-semibold text-white">
+                Session 3: Performance, Security & Scalability
+              </h4>
+            </div>
+            <div className="space-y-2 text-sm md:text-base">
+              <p className="text-gray-300">
+                <span className="text-gray-500">Date:</span>{" "}
+                <span className="font-medium" style={{ color: '#FFFFFF' }}>November 8th, 2025</span>
+              </p>
+              <p className="text-gray-300">
+                <span className="text-gray-500">Time:</span>{" "}
+                <span className="font-medium">8:00 PM</span>
+              </p>
+                <p className="text-gray-300">
+                <span className="text-gray-500">Speaker:</span>{" "}
+                <a 
+                  href="https://www.linkedin.com/in/surani-tissera-437b5a94/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline"
+                  style={{ color: '#FFFFFF' }}
+                >
+                  Dr. Surani Tissera
+                </a>
+                </p>
+            </div>
           </div>
+           {/* Session 4 */}
+          <div className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)', backgroundColor: 'rgba(0, 46, 186, 0.05)' }}>
+            <div className="flex items-start justify-between mb-3">
+              <h4 className="text-lg md:text-xl font-semibold text-white">
+                Session 4: Future & ML of mobile application development
+              </h4>
+            </div>
+            <div className="space-y-2 text-sm md:text-base">
+              <p className="text-gray-300">
+                <span className="text-gray-500">Date:</span>{" "}
+                <span className="font-medium" style={{ color: '#FFFFFF' }}>November 15th, 2025</span>
+              </p>
+              <p className="text-gray-300">
+                <span className="text-gray-500">Time:</span>{" "}
+                <span className="font-medium">8:00 PM</span>
+              </p>
+                <p className="text-gray-300">
+                <span className="text-gray-500">Speaker:</span>{" "}
+                <a 
+                  href="https://www.linkedin.com/in/sabilashanganeshan/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline"
+                  style={{ color: '#FFFFFF' }}
+                >
+                  Mr. Sabilashan Ganeshan
+                </a>
+                </p>
+            </div>
+          </div>
+          
         </div>
       ),
     },
