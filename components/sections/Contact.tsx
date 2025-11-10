@@ -22,7 +22,7 @@ const Contact = () => {
     {
       role: "Coordinating Head",
       name: "Roshen Adithya",
-      email: "",
+      email: "roshenadithya05@gmail.com",
       image: "/Roshen Adithya.jpg",
       order: "order-3 lg:order-3", // 3rd on mobile, 3rd on desktop
     },
