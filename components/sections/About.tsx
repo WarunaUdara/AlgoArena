@@ -1,11 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import RippleGrid from '../ui/RippleGrid';
 import CountdownTimer from '../ui/CountDownTimer';
 import ScrollAnimation from '../ui/scroll-animation';
 
 const About = () => {
-  // Set the target date for the countdown
-  const registrationDate = "2025-10-13T12:00:00";
+  // Define milestone dates
+  const registrationOpenDate = "2025-10-13T12:00:00";
+  const registrationCloseDate = "2025-10-27T12:00:00";
+  const finalRoundDate = "2025-11-29T12:00:00";
+
+  // State to track current phase
+  const [currentPhase, setCurrentPhase] = useState<{
+    title: string;
+    targetDate: string;
+   
+  } | null>(null);
+
+  useEffect(() => {
+    const determinePhase = () => {
+      const now = new Date().getTime();
+      const openTime = new Date(registrationOpenDate).getTime();
+      const closeTime = new Date(registrationCloseDate).getTime();
+      const finalTime = new Date(finalRoundDate).getTime();
+
+      if (now < openTime) {
+        // Before registration opens
+        setCurrentPhase({
+          title: "Registration Opens In",
+          targetDate: registrationOpenDate,
+          
+        });
+      } else if (now >= openTime && now < closeTime) {
+        // Registration is open
+        setCurrentPhase({
+          title: "Registration Closes In",
+          targetDate: registrationCloseDate,
+          
+        });
+      } else if (now >= closeTime && now < finalTime) {
+        // Registration closed, countdown to final round
+        setCurrentPhase({
+          title: "Final Round Begins In",
+          targetDate: finalRoundDate,
+          
+        });
+      } else {
+        // Final round has passed
+        setCurrentPhase({
+          title: "Event Concluded",
+          targetDate: finalRoundDate,
+          
+        });
+      }
+    };
+
+    determinePhase();
+    
+    // Check every minute for phase changes
+    const interval = setInterval(determinePhase, 60000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  if (!currentPhase) return null;
 
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden bg-black">
@@ -30,7 +87,7 @@ const About = () => {
         </ScrollAnimation>
         <ScrollAnimation>
           <p className="max-w-3xl mx-auto text-white text-base lg:text-lg leading-relaxed mb-6">
-            AlgoArena is an inter-university coding competition organized by the Leo Club of the University of Sri Jayewardenepura, 
+            AlgoArena is an inter-university coding competition organized by the Leo Club of University of Sri Jayewardenepura, 
             in collaboration with the IEEE Student Branch and Computer Society Chapter.
           </p>
           <p className="max-w-3xl mx-auto text-white text-base lg:text-lg leading-relaxed mb-6">
@@ -39,11 +96,36 @@ const About = () => {
           </p>
         </ScrollAnimation>
         <ScrollAnimation>
-          <p className="max-w-3xl mx-auto text-white text-base lg:text-lg leading-relaxed">
+          <p className="max-w-3xl mx-auto text-white text-base lg:text-lg leading-relaxed mb-6">
             Beyond the competition, AlgoArena includes a platform to showcase Leo Club projects across Sri Lanka, 
             encouraging learning, collaboration, and leadership among students. This is your opportunity to challenge yourself, 
             connect with innovators, and build something extraordinary.
           </p>
+
+          {/* Delegate Booklet Button */}
+          <div className="flex justify-center mt-8">
+            <a
+              href="https://drive.google.com/file/d/1nuaoftXPY7_3EWlpmkVBOGiNsSO04iBt/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#002EBA] hover:bg-[#0039d4] text-white text-base font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-[#002EBA]/20"
+            >
+              <svg 
+                className="w-5 h-5" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
+                />
+              </svg>
+              Delegate Booklet
+            </a>
+          </div>
         </ScrollAnimation>
 
         {/* Bottom Section with Video and Countdown */}
@@ -70,14 +152,42 @@ const About = () => {
             </div>
           </ScrollAnimation>
 
-          {/* Countdown Timer */}
+          {/* Dynamic Countdown Timer */}
           <ScrollAnimation>
             <div className="flex flex-col items-center lg:items-start">
-              <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6 text-center lg:text-left">
-                Registration Opens In
-              </h3>
+              {/* Title with Emoji */}
+              <div className="text-center lg:text-left mb-6">
+                
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
+                  {currentPhase.title}
+                </h3>
+                
+                {/* Date Display */}
+                {currentPhase.title !== "Event Concluded" && (
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 backdrop-blur-sm mt-2">
+                    <span className="text-blue-400 text-xs lg:text-sm font-medium">
+                      📅 {new Date(currentPhase.targetDate).toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                      })}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Countdown Timer or Concluded Message */}
               <div className="w-full flex justify-center lg:justify-start">
-                <CountdownTimer targetDate={registrationDate} />
+                {currentPhase.title !== "Event Concluded" ? (
+                  <CountdownTimer targetDate={currentPhase.targetDate} />
+                ) : (
+                  <div className="px-8 py-4 bg-gray-800 text-gray-300 rounded-xl border border-gray-700">
+                    <p className="text-lg font-semibold">AlgoArena 2025 has concluded</p>
+                    <p className="text-sm text-gray-400 mt-1">Thank you for participating!</p>
+                  </div>
+                )}
               </div>
             </div>
           </ScrollAnimation>
