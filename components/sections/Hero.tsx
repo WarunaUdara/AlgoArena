@@ -16,7 +16,7 @@ const Hero = () => {
   const registrationCloseDate = "2025-10-27T12:00:00";
   
   // Prototype submission deadline - Today at 11:59 PM
-  const prototypeDeadline = "2025-11-10T23:59:59";
+  const prototypeDeadline = "2025-11-11T23:59:59";
 
   useEffect(() => {
     const checkStatus = () => {
