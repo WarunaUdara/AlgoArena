@@ -21,9 +21,9 @@ const Contact = () => {
     },
     {
       role: "Coordinating Head",
-      name: "Chamath Heshitha",
-      email: "chamathheshitha6@gmail.com",
-      image: "/chamath.png",
+      name: "Roshen Adithya",
+      email: "",
+      image: "/Roshen Adithya.jpg",
       order: "order-3 lg:order-3", // 3rd on mobile, 3rd on desktop
     },
   ];
