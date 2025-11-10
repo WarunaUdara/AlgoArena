@@ -7,6 +7,7 @@ const About = () => {
   // Define milestone dates
   const registrationOpenDate = "2025-10-13T12:00:00";
   const registrationCloseDate = "2025-10-27T12:00:00";
+  const finalRoundDate = "2025-11-29T12:00:00";
 
   // State to track current phase
   const [currentPhase, setCurrentPhase] = useState<{
@@ -20,6 +21,7 @@ const About = () => {
       const now = new Date().getTime();
       const openTime = new Date(registrationOpenDate).getTime();
       const closeTime = new Date(registrationCloseDate).getTime();
+      const finalTime = new Date(finalRoundDate).getTime();
 
       if (now < openTime) {
         // Before registration opens
@@ -35,11 +37,18 @@ const About = () => {
           targetDate: registrationCloseDate,
           
         });
-      } else {
-        // Registration closed
+      } else if (now >= closeTime && now < finalTime) {
+        // Registration closed, countdown to final round
         setCurrentPhase({
-          title: "Registration Closed",
-          targetDate: registrationCloseDate,
+          title: "Final Round Begins In",
+          targetDate: finalRoundDate,
+          
+        });
+      } else {
+        // Final round has passed
+        setCurrentPhase({
+          title: "Event Concluded",
+          targetDate: finalRoundDate,
           
         });
       }
@@ -154,7 +163,7 @@ const About = () => {
                 </h3>
                 
                 {/* Date Display */}
-                {currentPhase.title !== "Registration Closed" && (
+                {currentPhase.title !== "Event Concluded" && (
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 backdrop-blur-sm mt-2">
                     <span className="text-blue-400 text-xs lg:text-sm font-medium">
                       📅 {new Date(currentPhase.targetDate).toLocaleDateString('en-US', {
@@ -169,14 +178,14 @@ const About = () => {
                 )}
               </div>
 
-              {/* Countdown Timer or Closed Message */}
+              {/* Countdown Timer or Concluded Message */}
               <div className="w-full flex justify-center lg:justify-start">
-                {currentPhase.title !== "Registration Closed" ? (
+                {currentPhase.title !== "Event Concluded" ? (
                   <CountdownTimer targetDate={currentPhase.targetDate} />
                 ) : (
                   <div className="px-8 py-4 bg-gray-800 text-gray-300 rounded-xl border border-gray-700">
-                    <p className="text-lg font-semibold">Registration has ended</p>
-                    <p className="text-sm text-gray-400 mt-1">Thank you for your interest!</p>
+                    <p className="text-lg font-semibold">AlgoArena 2025 has concluded</p>
+                    <p className="text-sm text-gray-400 mt-1">Thank you for participating!</p>
                   </div>
                 )}
               </div>
