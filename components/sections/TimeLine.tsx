@@ -16,7 +16,7 @@ const TimeLine = () => {
               Workshop Sessions
             </h3>
             <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-6">
-              Three online workshop sessions to prepare participants for the competition.
+              Four online workshop sessions to prepare participants for the competition.
             </p>
           </div>
 
@@ -86,43 +86,13 @@ const TimeLine = () => {
           <div className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)', backgroundColor: 'rgba(0, 46, 186, 0.05)' }}>
             <div className="flex items-start justify-between mb-3">
               <h4 className="text-lg md:text-xl font-semibold text-white">
-                Session 3: Performance, Security & Scalability
+                Session 3: Future & ML of mobile application development
               </h4>
             </div>
             <div className="space-y-2 text-sm md:text-base">
               <p className="text-gray-300">
                 <span className="text-gray-500">Date:</span>{" "}
                 <span className="font-medium" style={{ color: '#FFFFFF' }}>November 8th, 2025</span>
-              </p>
-              <p className="text-gray-300">
-                <span className="text-gray-500">Time:</span>{" "}
-                <span className="font-medium">8:00 PM</span>
-              </p>
-                <p className="text-gray-300">
-                <span className="text-gray-500">Speaker:</span>{" "}
-                <a 
-                  href="https://www.linkedin.com/in/surani-tissera-437b5a94/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="font-medium hover:underline"
-                  style={{ color: '#FFFFFF' }}
-                >
-                  Dr. Surani Tissera
-                </a>
-                </p>
-            </div>
-          </div>
-           {/* Session 4 */}
-          <div className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)', backgroundColor: 'rgba(0, 46, 186, 0.05)' }}>
-            <div className="flex items-start justify-between mb-3">
-              <h4 className="text-lg md:text-xl font-semibold text-white">
-                Session 4: Future & ML of mobile application development
-              </h4>
-            </div>
-            <div className="space-y-2 text-sm md:text-base">
-              <p className="text-gray-300">
-                <span className="text-gray-500">Date:</span>{" "}
-                <span className="font-medium" style={{ color: '#FFFFFF' }}>November 15th, 2025</span>
               </p>
               <p className="text-gray-300">
                 <span className="text-gray-500">Time:</span>{" "}
@@ -138,6 +108,37 @@ const TimeLine = () => {
                   style={{ color: '#FFFFFF' }}
                 >
                   Mr. Sabilashan Ganeshan
+                </a>
+                </p>
+            </div>
+          </div>
+           {/* Session 4 */}
+          <div className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)', backgroundColor: 'rgba(0, 46, 186, 0.05)' }}>
+            <div className="flex items-start justify-between mb-3">
+              <h4 className="text-lg md:text-xl font-semibold text-white">
+                Session 4: Performance, Security & Scalability
+              </h4>
+            </div>
+            <div className="space-y-2 text-sm md:text-base">
+              <p className="text-gray-300">
+                <span className="text-gray-500">Date:</span>{" "}
+                <span className="font-medium" style={{ color: '#FFFFFF' }}>November 15th, 2025</span>
+              </p>
+              <p className="text-gray-300">
+                <span className="text-gray-500">Time:</span>{" "}
+                <span className="font-medium">8:00 PM</span>
+              </p>
+                <p className="text-gray-300">
+                <span className="text-gray-500">Speaker:</span>{" "}
+                <a 
+                  // href="https://www.linkedin.com/in/surani-tissera-437b5a94/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline"
+                  style={{ color: '#FFFFFF' }}
+                >
+                  TBA
+                  {/* Dr. Surani Tissera */}
                 </a>
                 </p>
             </div>
