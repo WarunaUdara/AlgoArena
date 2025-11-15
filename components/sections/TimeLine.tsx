@@ -10,18 +10,28 @@ const TimeLine = () => {
       title: "Workshop Sessions",
       date: "Phase 1",
       content: (
-        <div className="border-l-2 pl-6 md:pl-8 space-y-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)' }}>
+        <div
+          className="border-l-2 pl-6 md:pl-8 space-y-6"
+          style={{ borderColor: "rgba(0, 46, 186, 0.3)" }}
+        >
           <div>
             <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
               Workshop Sessions
             </h3>
             <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-6">
-              Four online workshop sessions to prepare participants for the competition.
+              Four online workshop sessions to prepare participants for the
+              competition.
             </p>
           </div>
 
           {/* Session 1 - Detailed */}
-          <div className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)', backgroundColor: 'rgba(0, 46, 186, 0.05)' }}>
+          <div
+            className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6"
+            style={{
+              borderColor: "rgba(0, 46, 186, 0.3)",
+              backgroundColor: "rgba(0, 46, 186, 0.05)",
+            }}
+          >
             <div className="flex items-start justify-between mb-3">
               <h4 className="text-lg md:text-xl font-semibold text-white">
                 Session 1: APIs, Databases & Cloud Integration
@@ -30,90 +40,151 @@ const TimeLine = () => {
             <div className="space-y-2 text-sm md:text-base">
               <p className="text-gray-300">
                 <span className="text-gray-500">Date:</span>{" "}
-                <span className="font-medium" style={{ color: '#FFFFFF' }}>October 5th, 2025</span>
+                <span className="font-medium" style={{ color: "#FFFFFF" }}>
+                  October 5th, 2025
+                </span>
               </p>
               <p className="text-gray-300">
                 <span className="text-gray-500">Time:</span>{" "}
                 <span className="font-medium">8:00 PM</span>
               </p>
-                <p className="text-gray-300">
+              <p className="text-gray-300">
                 <span className="text-gray-500">Speaker:</span>{" "}
-                <a 
-                  href="https://www.linkedin.com/in/sureshmichael/" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/sureshmichael/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="font-medium hover:underline"
-                  style={{ color: '#FFFFFF' }}
+                  style={{ color: "#FFFFFF" }}
                 >
                   Mr. Suresh Michael Pieris
                 </a>
-                </p>
+              </p>
+              <p className="text-gray-300">
+                <span className="text-gray-500">Recording:</span>{" "}
+                <a
+                  href="https://youtu.be/l8G2HMNOZyk?si=WWcskNFHCy7i-sYg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline"
+                  style={{ color: "#4EA8FF" }}
+                >
+                  Watch Session 1
+                </a>
+              </p>
             </div>
           </div>
 
           {/* Session 2 */}
-          <div className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)', backgroundColor: 'rgba(0, 46, 186, 0.05)' }}>
+          <div
+            className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6"
+            style={{
+              borderColor: "rgba(0, 46, 186, 0.3)",
+              backgroundColor: "rgba(0, 46, 186, 0.05)",
+            }}
+          >
             <div className="flex items-start justify-between mb-3">
               <h4 className="text-lg md:text-xl font-semibold text-white">
-                Session 2: UI/UX & best Practices to Mobile app Development
+                Session 2: UI/UX & Best Practices in Mobile App Development
               </h4>
             </div>
             <div className="space-y-2 text-sm md:text-base">
               <p className="text-gray-300">
                 <span className="text-gray-500">Date:</span>{" "}
-                <span className="font-medium" style={{ color: '#FFFFFF' }}>October 18th, 2025</span>
+                <span className="font-medium" style={{ color: "#FFFFFF" }}>
+                  October 18th, 2025
+                </span>
               </p>
               <p className="text-gray-300">
                 <span className="text-gray-500">Time:</span>{" "}
                 <span className="font-medium">7:00 PM</span>
               </p>
-                <p className="text-gray-300">
+              <p className="text-gray-300">
                 <span className="text-gray-500">Speaker:</span>{" "}
-                <a 
-                  href="https://www.linkedin.com/in/kushanb/" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/kushanb/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="font-medium hover:underline"
-                  style={{ color: '#FFFFFF' }}
+                  style={{ color: "#FFFFFF" }}
                 >
                   Mr. Kushan Bhareti
                 </a>
-                </p>
+              </p>
+              <p className="text-gray-300">
+                <span className="text-gray-500">Recording:</span>{" "}
+                <a
+                  href="https://youtu.be/eitGNteT4OQ?si=4NstuoBR4YPmj6gy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline"
+                  style={{ color: "#4EA8FF" }}
+                >
+                  Watch Session 2
+                </a>
+              </p>
             </div>
           </div>
 
-          {/* Session 3  */}
-          <div className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)', backgroundColor: 'rgba(0, 46, 186, 0.05)' }}>
-            <div className="flex items-start justify-between mb-3">
-              <h4 className="text-lg md:text-xl font-semibold text-white">
-                Session 3: Future & ML of mobile application development
-              </h4>
-            </div>
-            <div className="space-y-2 text-sm md:text-base">
-              <p className="text-gray-300">
-                <span className="text-gray-500">Date:</span>{" "}
-                <span className="font-medium" style={{ color: '#FFFFFF' }}>November 8th, 2025</span>
-              </p>
-              <p className="text-gray-300">
-                <span className="text-gray-500">Time:</span>{" "}
-                <span className="font-medium">8:00 PM</span>
-              </p>
+          {/* Session 3 */}
+            <div
+              className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6"
+              style={{
+                borderColor: "rgba(0, 46, 186, 0.3)",
+                backgroundColor: "rgba(0, 46, 186, 0.05)",
+              }}
+            >
+              <div className="flex items-start justify-between mb-3">
+                <h4 className="text-lg md:text-xl font-semibold text-white">
+                  Session 3: Future & ML of Mobile Application Development
+                </h4>
+              </div>
+              <div className="space-y-2 text-sm md:text-base">
                 <p className="text-gray-300">
-                <span className="text-gray-500">Speaker:</span>{" "}
-                <a 
-                  href="https://www.linkedin.com/in/sabilashanganeshan/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="font-medium hover:underline"
-                  style={{ color: '#FFFFFF' }}
-                >
-                  Mr. Sabilashan Ganeshan
-                </a>
+                  <span className="text-gray-500">Date:</span>{" "}
+                  <span className="font-medium" style={{ color: "#FFFFFF" }}>
+                    November 8th, 2025
+                  </span>
                 </p>
+                <p className="text-gray-300">
+                  <span className="text-gray-500">Time:</span>{" "}
+                  <span className="font-medium">8:00 PM</span>
+                </p>
+                <p className="text-gray-300">
+                  <span className="text-gray-500">Speaker:</span>{" "}
+                  <a
+                    href="https://www.linkedin.com/in/sabilashanganeshan/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium hover:underline"
+                    style={{ color: "#FFFFFF" }}
+                  >
+                    Mr. Sabilashan Ganeshan
+                  </a>
+                </p>
+                <p className="text-gray-300">
+                  <span className="text-gray-500">Recording:</span>{" "}
+                  <a
+                    href="https://youtu.be/gbBd_SPOT88?si=p5yuXh9xnpJwHw58"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium hover:underline"
+                    style={{ color: "#4EA8FF" }}
+                  >
+                    Watch Session 3
+                  </a>
+                </p>
+              </div>
             </div>
-          </div>
-           {/* Session 4 */}
-          <div className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6" style={{ borderColor: 'rgba(0, 46, 186, 0.3)', backgroundColor: 'rgba(0, 46, 186, 0.05)' }}>
+
+          {/* Session 4 */}
+          <div
+            className="bg-gradient-to-b from-transparent to-transparent border rounded-lg p-4 md:p-6"
+            style={{
+              borderColor: "rgba(0, 46, 186, 0.3)",
+              backgroundColor: "rgba(0, 46, 186, 0.05)",
+            }}
+          >
             <div className="flex items-start justify-between mb-3">
               <h4 className="text-lg md:text-xl font-semibold text-white">
                 Session 4: Performance, Security & Scalability
@@ -122,27 +193,29 @@ const TimeLine = () => {
             <div className="space-y-2 text-sm md:text-base">
               <p className="text-gray-300">
                 <span className="text-gray-500">Date:</span>{" "}
-                <span className="font-medium" style={{ color: '#FFFFFF' }}>November 15th, 2025</span>
+                <span className="font-medium" style={{ color: "#FFFFFF" }}>
+                  November 15th, 2025
+                </span>
               </p>
               <p className="text-gray-300">
                 <span className="text-gray-500">Time:</span>{" "}
                 <span className="font-medium">8:00 PM</span>
               </p>
-                <p className="text-gray-300">
+              <p className="text-gray-300">
                 <span className="text-gray-500">Speaker:</span>{" "}
-                <a 
-                  href="https://www.linkedin.com/in/kavimal-wijewardana/" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/kavimal-wijewardana/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="font-medium hover:underline"
-                  style={{ color: '#FFFFFF' }}
+                  style={{ color: "#FFFFFF" }}
                 >
                   Mr. Kavimal Wijewardana
                 </a>
-                </p>
+              </p>
+              {/* (No recording yet provided for Session 4) */}
             </div>
           </div>
-          
         </div>
       ),
     },
@@ -150,13 +223,17 @@ const TimeLine = () => {
       title: "Preliminary Round",
       date: "Phase 2",
       content: (
-        <div className="border-l-2 pl-6 md:pl-8" style={{ borderColor: 'rgba(0, 46, 186, 0.3)' }}>
+        <div
+          className="border-l-2 pl-6 md:pl-8"
+          style={{ borderColor: "rgba(0, 46, 186, 0.3)" }}
+        >
           <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
             Online Preliminary Round
           </h3>
           <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-            Submit a high-fidelity design prototype demonstrating your solution to the given problem statement. 
-            Top performers advance to the final round.
+            Submit a high-fidelity design prototype demonstrating your solution
+            to the given problem statement. Top performers advance to the final
+            round.
           </p>
         </div>
       ),
@@ -165,13 +242,17 @@ const TimeLine = () => {
       title: "Final Round",
       date: "Phase 3",
       content: (
-        <div className="border-l-2 pl-6 md:pl-8" style={{ borderColor: 'rgba(0, 46, 186, 0.3)' }}>
+        <div
+          className="border-l-2 pl-6 md:pl-8"
+          style={{ borderColor: "rgba(0, 46, 186, 0.3)" }}
+        >
           <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
             Physical Final Round
           </h3>
-          <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-            Selected finalists compete in person for the championship title and prizes.
-          </p>
+            <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+              Selected finalists compete in person for the championship title
+              and prizes.
+            </p>
         </div>
       ),
     },
