@@ -131,14 +131,13 @@ const TimeLine = () => {
                 <p className="text-gray-300">
                 <span className="text-gray-500">Speaker:</span>{" "}
                 <a 
-                  // href="https://www.linkedin.com/in/surani-tissera-437b5a94/" 
+                  href="https://www.linkedin.com/in/kavimal-wijewardana/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="font-medium hover:underline"
                   style={{ color: '#FFFFFF' }}
                 >
-                  TBA
-                  {/* Dr. Surani Tissera */}
+                  Mr. Kavimal Wijewardana
                 </a>
                 </p>
             </div>
