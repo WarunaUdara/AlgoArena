@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="absolute inset-0 transform-gpu">
         <Plasma
           color="#002EBA"
-          speed={1}
+          speed={0.8}
           direction="forward"
           scale={2.8}
           opacity={0.8}
