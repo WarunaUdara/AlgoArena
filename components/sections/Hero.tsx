@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Plasma from "../ui/Plasma";
@@ -8,38 +8,6 @@ import { TextGenerateEffect } from "../ui/TextGenerateEffect";
 const Hero = () => {
   const [startTextGenerate, setStartTextGenerate] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
-  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
-  const [isPrototypeSubmissionOpen, setIsPrototypeSubmissionOpen] = useState(true);
-
-  // Registration dates
-  const registrationOpenDate = "2025-10-13T12:00:00";
-  const registrationCloseDate = "2025-10-27T12:00:00";
-  
-  // Prototype submission deadline - at 11:59 PM
-  const prototypeDeadline = "2025-11-16T23:59:59";
-
-  useEffect(() => {
-    const checkStatus = () => {
-      const now = new Date().getTime();
-      const openTime = new Date(registrationOpenDate).getTime();
-      const closeTime = new Date(registrationCloseDate).getTime();
-      const prototypeCloseTime = new Date(prototypeDeadline).getTime();
-
-      // Registration is open between open and close dates
-      setIsRegistrationOpen(now >= openTime && now < closeTime);
-      
-      // Prototype submission is open until deadline
-      setIsPrototypeSubmissionOpen(now < prototypeCloseTime);
-    };
-
-    // Check immediately on mount
-    checkStatus();
-
-    // Check every minute for status changes
-    const interval = setInterval(checkStatus, 60000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const handleAnimationComplete = () => {
     console.log("BlurText animation completed!");
@@ -84,7 +52,7 @@ const Hero = () => {
                 startAnimation={startTextGenerate}
               />
 
-              {/* Buttons with Fade Animation - Dynamic State */}
+              {/* Buttons with Fade Animation */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={showButtons ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -94,68 +62,34 @@ const Hero = () => {
                 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                {/* Show buttons based on prototype submission status */}
-                {isPrototypeSubmissionOpen ? (
-                  <>
-                    {/* Primary Button - Dynamic Registration State */}
-                    {isRegistrationOpen ? (
-                      // ENABLED - Registration is Open
-                      <Link 
-                        href="/registration"
-                        className="group relative px-8 py-4 lg:px-10 lg:py-5 bg-[#002EBA] hover:bg-[#0039d4] text-white text-lg rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform overflow-hidden shadow-lg hover:shadow-xl hover:shadow-[#002EBA]/20"
-                      >
-                        {/* Shimmer effect on hover */}
-                        <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-20 transition-opacity duration-300">
-                          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
-                        </span>
-                        <span className="relative flex items-center gap-2">
-                          Register Now
-                          <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                          </svg>
-                        </span>
-                      </Link>
-                    ) : (
-                      // DISABLED - Registration Not Open Yet or Closed
-                      <div 
-                        className="px-8 py-4 lg:px-10 lg:py-5 bg-gray-600 text-gray-300 text-lg rounded-xl font-semibold flex items-center justify-center cursor-not-allowed opacity-60"
-                      >
-                        <span className="flex items-center gap-2">
-                          Registration Closed
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                          </svg>
-                        </span>
-                      </div>
-                    )}
+                {/* Implementation Submission Button */}
+                <Link 
+                  href="/implementation-submission"
+                  className="group relative px-8 py-4 lg:px-10 lg:py-5 bg-[#002EBA] hover:bg-[#0039d4] text-white text-lg rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform overflow-hidden shadow-lg hover:shadow-xl hover:shadow-[#002EBA]/20"
+                >
+                  <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
+                  </span>
+                  <span className="relative flex items-center gap-2">
+                    Submit Implementation
+                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </span>
+                </Link>
 
-                    {/* Prototype Submission Button - Active */}
-                    <Link 
-                      href="/prototype-submission"
-                      className="group relative px-8 py-4 lg:px-10 lg:py-5 bg-transparent border-2 border-[#002EBA] text-white hover:bg-[#002EBA]/10 text-lg rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform backdrop-blur-sm hover:shadow-lg hover:shadow-[#002EBA]/10"
-                    >
-                      <span className="relative flex items-center gap-2">
-                        Prototype Submission
-                        <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                        </svg>
-                      </span>
-                    </Link>
-                  </>
-                ) : (
-                  // After prototype submission closes - Only show Learn More button
-                  <a 
-                    href="#about"
-                    className="group relative px-8 py-4 lg:px-10 lg:py-5 bg-transparent border-2 border-[#002EBA] text-white hover:bg-[#002EBA]/10 text-lg rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform backdrop-blur-sm hover:shadow-lg hover:shadow-[#002EBA]/10"
-                  >
-                    <span className="relative flex items-center gap-2">
-                      Learn More
-                      <svg className="w-5 h-5 transform group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                      </svg>
-                    </span>
-                  </a>
-                )}
+                {/* Learn More Button */}
+                <a 
+                  href="#about"
+                  className="group relative px-8 py-4 lg:px-10 lg:py-5 bg-transparent border-2 border-[#002EBA] text-white hover:bg-[#002EBA]/10 text-lg rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center will-change-transform backdrop-blur-sm hover:shadow-lg hover:shadow-[#002EBA]/10"
+                >
+                  <span className="relative flex items-center gap-2">
+                    Learn More
+                    <svg className="w-5 h-5 transform group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  </span>
+                </a>
               </motion.div>
             </div>
 

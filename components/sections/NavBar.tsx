@@ -2,8 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
+import { useRouter, usePathname } from "next/navigation";
 
 const NavBar = () => {
+  const router = useRouter();
+  const pathname = usePathname();
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -70,9 +73,19 @@ const NavBar = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    
+    // Check if we're on the home page
+    const isHomePage = pathname === '/';
+    
+    if (isHomePage) {
+      // If on home page, scroll to section
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // If on another page, navigate to home page with the section hash
+      router.push(`/${href}`);
     }
   };
 
