@@ -1,0 +1,77 @@
+.marquee {
+  --marquee-duration: 40s;
+  --marquee-gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee::before,
+.marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 10%;
+  min-width: 100px;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.marquee::before {
+  left: 0;
+  background: linear-gradient(to right, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 0.98) 20%,
+    rgba(0, 0, 0, 0.9) 40%,
+    rgba(0, 0, 0, 0.7) 60%,
+    rgba(0, 0, 0, 0.4) 80%,
+    transparent 100%);
+}
+
+.marquee::after {
+  right: 0;
+  background: linear-gradient(to left, 
+    rgba(0, 0, 0, 1) 0%, 
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 0.98) 20%,
+    rgba(0, 0, 0, 0.9) 40%,
+    rgba(0, 0, 0, 0.7) 60%,
+    rgba(0, 0, 0, 0.4) 80%,
+    transparent 100%);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--marquee-gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--marquee-gap)));
+  }
+}
+
+.marqueeContent {
+  animation: marquee var(--marquee-duration) infinite linear;
+}
+
+.marqueeContentVertical {
+  animation: marquee-vertical var(--marquee-duration) infinite linear;
+}
+
+.marqueeContentReverse {
+  animation-direction: reverse;
+}
+
+.marqueeContentPause:hover .marqueeContent,
+.marqueeContentPause:hover .marqueeContentVertical {
+  animation-play-state: paused;
+}
